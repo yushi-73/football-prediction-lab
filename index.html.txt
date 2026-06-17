@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Football Prediction Lab</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Football Prediction Lab</h1>
+    <p>サッカーの試合結果データを用いた順位予測モデルの個人研究サイトです。</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Project</h2>
+      <p>
+        Jリーグの試合結果やシュート数をもとに、各チームの攻撃力・守備力を推定し、
+        ポアソン分布によるシミュレーションで順位予測を行っています。
+      </p>
+    </section>
+
+    <section>
+      <h2>Model</h2>
+      <ul>
+        <li>使用言語：Python</li>
+        <li>予測手法：ポアソン分布による試合シミュレーション</li>
+        <li>評価指標：MAE（平均順位誤差）</li>
+        <li>更新間隔：3試合ごと</li>
+        <li>期待得点上限：3.5</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Purpose</h2>
+      <p>
+        データに基づいて仮説を立て、検証し、改善するプロセスを通じて、
+        スポーツ分析だけでなく、ゲームにおけるバランス設計や企画立案にも応用できる思考力を磨くことを目的としています。
+      </p>
+    </section>
+  </main>
+</body>
+</html>
