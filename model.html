@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Model | Football Prediction Lab</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Model</h1>
+    <p>順位予測モデルの前提条件と採用パラメータ</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>モデル概要</h2>
+      <p>
+        本サイトでは、Jリーグの試合結果やシュート数をもとに各チームの攻撃力・守備力を推定し、
+        ポアソン分布を用いて各試合の得点確率を計算しています。
+        その結果をもとにリーグ戦を複数回シミュレーションし、最終順位を予測します。
+      </p>
+    </section>
+
+    <section>
+      <h2>使用データ</h2>
+      <ul>
+        <li>対象リーグ：J1リーグ</li>
+        <li>対象シーズン：2024年・2025年</li>
+        <li>使用データ：得点、失点、シュート数、枠内シュート数</li>
+        <li>評価指標：MAE（平均順位誤差）</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>前提条件・採用パラメータ</h2>
+      <table>
+        <tr>
+          <th>項目</th>
+          <th>設定</th>
+          <th>理由</th>
+        </tr>
+        <tr>
+          <td>試合モデル</td>
+          <td>ポアソン分布</td>
+          <td>サッカーの得点数のような低頻度イベントを扱いやすいため</td>
+        </tr>
+        <tr>
+          <td>更新間隔</td>
+          <td>3試合ごと</td>
+          <td>1試合ごとよりもノイズを抑え、5試合ごとよりも変化に追従しやすかったため</td>
+        </tr>
+        <tr>
+          <td>期待得点上限</td>
+          <td>3.5</td>
+          <td>極端な大量得点予測を抑えるため</td>
+        </tr>
+        <tr>
+          <td>Decay</td>
+          <td>1.00</td>
+          <td>直近試合を過度に重視すると精度が悪化したため</td>
+        </tr>
+        <tr>
+          <td>ホーム補正</td>
+          <td>0.0</td>
+          <td>検証上、補正なしの方がMAEが小さかったため</td>
+        </tr>
+        <tr>
+          <td>フォーム補正</td>
+          <td>0.0</td>
+          <td>直近成績を混合すると精度が悪化したため</td>
+        </tr>
+        <tr>
+          <td>シミュレーション回数</td>
+          <td>100回</td>
+          <td>検証速度を優先し、開発段階では軽量に運用するため</td>
+        </tr>
+        <tr>
+          <td>Elo補正</td>
+          <td>INITIAL_ELO = 1500 K_FACTOR = 16 HOME_ADV = 0 ELO_LAMBDA_WEIGHT = 0.20</td>
+          <td>この組み合わせであくまでλへの弱い補正として用いる方がMAEに改善が見られたため</td>
+        </tr>
+        <tr>
+          <td>相性Effect</td>
+          <td> <a href="glossary.html#matchup-effect">相性Effect</a>0.20
+               <a href="glossary.html#decay">時間減衰</a>0.97
+               <a href="glossary.html#prior">縮小補正</a>30
+          </td>
+          <td>Eloレーティングの使用方法のの改良が見込めるため</td>
+
+        </tr>
+        </tr>
+      </table>
+    </section>
+
+    <section>
+      <h2>検証結果の例</h2>
+      <p>
+        これまでの検証では、更新間隔は3試合ごと、期待得点上限は3.5、
+        Decayは1.00が比較的良い結果となりました。
+        今後はシュート数や枠内シュート数、前年レーティングを組み合わせ、
+        予測精度の改善を進めていきます。
+      </p>
+    </section>
+
+    <section>
+      <h2>今後の改善予定</h2>
+      <ul>
+        <li>順位予測表のWeb表示</li>
+        <li>チーム別の順位分布表示</li>
+        <li>シュート数・枠内シュート数を用いた特徴量改善</li>
+        <li>シーズン途中時点での予測精度検証</li>
+      </ul>
+    </section>
+
+    <section>
+      <nav class="site-nav">
+        <a href="index.html">トップ</a>
+         <a href="model.html">モデル説明</a>
+         <a href="devlog.html">開発ログ</a>
+         <a href="glossary.html">用語集</a>
+      </nav>
+    </section>
+  </main>
+</body>
+</html>
+

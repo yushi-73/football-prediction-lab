@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>相性Effect 3年比較</title>
+  <style>
+    body {
+      font-family: Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+      margin: 40px;
+      background: #f7f7f7;
+      color: #222;
+    }
+    h1 { margin-bottom: 8px; }
+    .note { line-height: 1.8; color: #555; margin-bottom: 24px; }
+    .table-wrap {
+      overflow-x: auto;
+      background: white;
+      padding: 16px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px 10px;
+      text-align: center;
+      white-space: nowrap;
+    }
+    th { background: #222; color: white; }
+    tr:nth-child(even) { background: #f5f5f5; }
+  </style>
+</head>
+<body>
+  <h1>相性Effect 3年比較</h1>
+  <div class="note">
+    <p>
+      2022→2023、2023→2024、2024→2025を対象に、PREV_WEIGHT=0.20 / PREV_DECAY=0.995、
+      ELO_LAMBDA_WEIGHT=0.20、大勝補正cap4を固定し、相性Effectの重みを比較しています。
+    </p>
+    <p>
+      λは得点のみで作成し、シュート数・枠内シュート数・優勝ブースト・残留ブーストは使っていません。
+      N_SIM_SEARCH=10000, LAMBDA_CAP=3.5, CURRENT_DECAY=1.0,
+      MATCHUP_PRIOR_N=30, MATCHUP_TIME_DECAY=0.97。
+    </p>
+  </div>
+  <div class="table-wrap">
+    <table border="1" class="dataframe prediction-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>rank</th>
+      <th>prev_setting_name</th>
+      <th>prev_weight</th>
+      <th>prev_decay</th>
+      <th>elo_lambda_weight</th>
+      <th>goal_adjust_name</th>
+      <th>goal_adjust_mode</th>
+      <th>goal_cap_for_strength</th>
+      <th>compat_weight</th>
+      <th>matchup_prior_n</th>
+      <th>matchup_time_decay</th>
+      <th>compat_factor_min</th>
+      <th>compat_factor_max</th>
+      <th>mean_mae</th>
+      <th>std_mae</th>
+      <th>mean_prob_actual_position</th>
+      <th>mean_sim_draw_rate</th>
+      <th>mae_2023</th>
+      <th>mae_2024</th>
+      <th>mae_2025</th>
+      <th>delta_vs_compat000</th>
+      <th>delta_vs_compat010</th>
+      <th>delta_vs_compat020</th>
+      <th>delta_vs_compat030</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>prev020_decay0995</td>
+      <td>0.2</td>
+      <td>0.995</td>
+      <td>0.2</td>
+      <td>cap4</td>
+      <td>cap</td>
+      <td>4</td>
+      <td>0.30</td>
+      <td>30</td>
+      <td>0.97</td>
+      <td>0.95</td>
+      <td>1.05</td>
+      <td>2.2906</td>
+      <td>0.2737</td>
+      <td>0.1401</td>
+      <td>0.2551</td>
+      <td>2.0365</td>
+      <td>2.5803</td>
+      <td>2.2550</td>
+      <td>-0.0023</td>
+      <td>-0.0040</td>
+      <td>-0.0017</td>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>prev020_decay0995</td>
+      <td>0.2</td>
+      <td>0.995</td>
+      <td>0.2</td>
+      <td>cap4</td>
+      <td>cap</td>
+      <td>4</td>
+      <td>0.20</td>
+      <td>30</td>
+      <td>0.97</td>
+      <td>0.95</td>
+      <td>1.05</td>
+      <td>2.2923</td>
+      <td>0.2739</td>
+      <td>0.1408</td>
+      <td>0.2550</td>
+      <td>2.0425</td>
+      <td>2.5852</td>
+      <td>2.2491</td>
+      <td>-0.0007</td>
+      <td>-0.0023</td>
+      <td>0.0000</td>
+      <td>0.0017</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>prev020_decay0995</td>
+      <td>0.2</td>
+      <td>0.995</td>
+      <td>0.2</td>
+      <td>cap4</td>
+      <td>cap</td>
+      <td>4</td>
+      <td>0.00</td>
+      <td>30</td>
+      <td>0.97</td>
+      <td>0.95</td>
+      <td>1.05</td>
+      <td>2.2929</td>
+      <td>0.2699</td>
+      <td>0.1401</td>
+      <td>0.2547</td>
+      <td>2.0420</td>
+      <td>2.5784</td>
+      <td>2.2584</td>
+      <td>0.0000</td>
+      <td>-0.0017</td>
+      <td>0.0007</td>
+      <td>0.0023</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>prev020_decay0995</td>
+      <td>0.2</td>
+      <td>0.995</td>
+      <td>0.2</td>
+      <td>cap4</td>
+      <td>cap</td>
+      <td>4</td>
+      <td>0.05</td>
+      <td>30</td>
+      <td>0.97</td>
+      <td>0.95</td>
+      <td>1.05</td>
+      <td>2.2931</td>
+      <td>0.2755</td>
+      <td>0.1397</td>
+      <td>0.2544</td>
+      <td>2.0434</td>
+      <td>2.5887</td>
+      <td>2.2473</td>
+      <td>0.0002</td>
+      <td>-0.0015</td>
+      <td>0.0009</td>
+      <td>0.0025</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>prev020_decay0995</td>
+      <td>0.2</td>
+      <td>0.995</td>
+      <td>0.2</td>
+      <td>cap4</td>
+      <td>cap</td>
+      <td>4</td>
+      <td>0.10</td>
+      <td>30</td>
+      <td>0.97</td>
+      <td>0.95</td>
+      <td>1.05</td>
+      <td>2.2946</td>
+      <td>0.2741</td>
+      <td>0.1395</td>
+      <td>0.2546</td>
+      <td>2.0370</td>
+      <td>2.5827</td>
+      <td>2.2640</td>
+      <td>0.0017</td>
+      <td>0.0000</td>
+      <td>0.0023</td>
+      <td>0.0040</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>prev020_decay0995</td>
+      <td>0.2</td>
+      <td>0.995</td>
+      <td>0.2</td>
+      <td>cap4</td>
+      <td>cap</td>
+      <td>4</td>
+      <td>0.15</td>
+      <td>30</td>
+      <td>0.97</td>
+      <td>0.95</td>
+      <td>1.05</td>
+      <td>2.2956</td>
+      <td>0.2757</td>
+      <td>0.1384</td>
+      <td>0.2549</td>
+      <td>2.0394</td>
+      <td>2.5874</td>
+      <td>2.2598</td>
+      <td>0.0026</td>
+      <td>0.0010</td>
+      <td>0.0033</td>
+      <td>0.0050</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>prev020_decay0995</td>
+      <td>0.2</td>
+      <td>0.995</td>
+      <td>0.2</td>
+      <td>cap4</td>
+      <td>cap</td>
+      <td>4</td>
+      <td>0.25</td>
+      <td>30</td>
+      <td>0.97</td>
+      <td>0.95</td>
+      <td>1.05</td>
+      <td>2.2956</td>
+      <td>0.2746</td>
+      <td>0.1395</td>
+      <td>0.2548</td>
+      <td>2.0421</td>
+      <td>2.5874</td>
+      <td>2.2574</td>
+      <td>0.0027</td>
+      <td>0.0010</td>
+      <td>0.0034</td>
+      <td>0.0050</td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

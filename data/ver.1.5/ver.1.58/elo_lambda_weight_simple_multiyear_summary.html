@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Elo補正 3年比較</title>
+  <style>
+    body {
+      font-family: Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+      margin: 40px;
+      background: #f7f7f7;
+      color: #222;
+    }
+    h1 { margin-bottom: 8px; }
+    .note { line-height: 1.8; color: #555; margin-bottom: 24px; }
+    .table-wrap {
+      overflow-x: auto;
+      background: white;
+      padding: 16px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px 10px;
+      text-align: center;
+      white-space: nowrap;
+    }
+    th { background: #222; color: white; }
+    tr:nth-child(even) { background: #f5f5f5; }
+  </style>
+</head>
+<body>
+  <h1>Elo補正 3年比較</h1>
+  <div class="note">
+    <p>
+      2022→2023、2023→2024、2024→2025を対象に、PREV_WEIGHT=0.20 / PREV_DECAY=0.995 を固定し、
+      Elo補正重みだけを比較しています。λは得点のみで作成し、シュート数・枠内シュート数・相性Effect・終盤補正は使っていません。
+    </p>
+    <p>
+      N_SIM_SEARCH=10000, LAMBDA_CAP=3.5, CURRENT_DECAY=1.0。
+    </p>
+  </div>
+  <div class="table-wrap">
+    <table border="1" class="dataframe prediction-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>rank</th>
+      <th>prev_setting_name</th>
+      <th>prev_weight</th>
+      <th>prev_decay</th>
+      <th>elo_lambda_weight</th>
+      <th>mean_mae</th>
+      <th>std_mae</th>
+      <th>mean_prob_actual_position</th>
+      <th>mean_sim_draw_rate</th>
+      <th>mae_2023</th>
+      <th>mae_2024</th>
+      <th>mae_2025</th>
+      <th>delta_vs_elo000</th>
+      <th>delta_vs_elo010</th>
+      <th>delta_vs_elo020</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>prev020_decay0995</td>
+      <td>0.2</td>
+      <td>0.995</td>
+      <td>0.20</td>
+      <td>2.3121</td>
+      <td>0.2795</td>
+      <td>0.1399</td>
+      <td>0.2545</td>
+      <td>2.0510</td>
+      <td>2.6069</td>
+      <td>2.2783</td>
+      <td>-0.0022</td>
+      <td>-0.0065</td>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>prev020_decay0995</td>
+      <td>0.2</td>
+      <td>0.995</td>
+      <td>0.30</td>
+      <td>2.3131</td>
+      <td>0.2755</td>
+      <td>0.1410</td>
+      <td>0.2536</td>
+      <td>2.0557</td>
+      <td>2.6038</td>
+      <td>2.2798</td>
+      <td>-0.0011</td>
+      <td>-0.0055</td>
+      <td>0.0010</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>prev020_decay0995</td>
+      <td>0.2</td>
+      <td>0.995</td>
+      <td>0.00</td>
+      <td>2.3143</td>
+      <td>0.2812</td>
+      <td>0.1405</td>
+      <td>0.2558</td>
+      <td>2.0462</td>
+      <td>2.6069</td>
+      <td>2.2897</td>
+      <td>0.0000</td>
+      <td>-0.0043</td>
+      <td>0.0022</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>prev020_decay0995</td>
+      <td>0.2</td>
+      <td>0.995</td>
+      <td>0.25</td>
+      <td>2.3146</td>
+      <td>0.2741</td>
+      <td>0.1405</td>
+      <td>0.2544</td>
+      <td>2.0596</td>
+      <td>2.6045</td>
+      <td>2.2796</td>
+      <td>0.0003</td>
+      <td>-0.0040</td>
+      <td>0.0025</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>prev020_decay0995</td>
+      <td>0.2</td>
+      <td>0.995</td>
+      <td>0.15</td>
+      <td>2.3149</td>
+      <td>0.2762</td>
+      <td>0.1406</td>
+      <td>0.2544</td>
+      <td>2.0512</td>
+      <td>2.6021</td>
+      <td>2.2913</td>
+      <td>0.0006</td>
+      <td>-0.0037</td>
+      <td>0.0028</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>prev020_decay0995</td>
+      <td>0.2</td>
+      <td>0.995</td>
+      <td>0.10</td>
+      <td>2.3186</td>
+      <td>0.2743</td>
+      <td>0.1404</td>
+      <td>0.2549</td>
+      <td>2.0572</td>
+      <td>2.6042</td>
+      <td>2.2943</td>
+      <td>0.0043</td>
+      <td>0.0000</td>
+      <td>0.0065</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>prev020_decay0995</td>
+      <td>0.2</td>
+      <td>0.995</td>
+      <td>0.05</td>
+      <td>2.3191</td>
+      <td>0.2773</td>
+      <td>0.1399</td>
+      <td>0.2552</td>
+      <td>2.0528</td>
+      <td>2.6062</td>
+      <td>2.2983</td>
+      <td>0.0049</td>
+      <td>0.0005</td>
+      <td>0.0071</td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

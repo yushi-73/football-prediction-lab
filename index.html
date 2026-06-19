@@ -16,7 +16,7 @@
       <h2>Project</h2>
       <p>
         Jリーグの試合結果やシュート数をもとに、各チームの攻撃力・守備力を推定し、
-        ポアソン分布によるシミュレーションで順位予測を行っています。
+       <a href="glossary.html#poisson">ポアソン分布</a>によるシミュレーションで順位予測を行っています。
       </p>
     </section>
 
@@ -25,7 +25,7 @@
       <ul>
         <li>使用言語：Python</li>
         <li>予測手法：ポアソン分布による試合シミュレーション</li>
-        <li>評価指標：MAE（平均順位誤差）</li>
+        <li>評価指標：<a href="glossary.html#mae">MAE</a>（平均順位誤差）</li>
         
       </ul>
     </section>
@@ -39,7 +39,47 @@
     順位予測の精度向上を目指して継続的に検証を行っています。
     現在はJ1リーグを対象として、ポアソン分布を用いたシミュレーションモデルの開発を進めています。
               </p>
+    </section>  
+
+    <section>
+      <h2>最新モデルによる順位予想</h2>
+      <p>
+      最新モデル:ver1.5(2026.06.18更新)によって
+      2025年j1リーグ第19節までの実際の結果から後半戦を予測した結果が
+      <a href="data/ver.1.5/v15_elo_weight_best_prediction.html">こちら</a>
+      です
+      </p>
     </section>
-  </main>
+    <section>
+      <h2>verごとの過去予測順位表</h2>
+      <p>
+       <a href="data/ver.1.4/j1_2025_prediction_v14_cap4.html">ver1.4</a>
+       (2026.06.18更新)
+      <p>
+       <a href="data/ver.1.3/j1_2025_prediction_promoted_prev0.html">ver1.3</a>
+       (2026.06.18更新)
+      </p>
+      <p>
+       <a href="data/ver.1.2/j1_2025_prediction_current_model.html">ver1.2</a>
+       (2026.06.18更新)
+      </p>
+      <p>
+       <a href="data/ver.1.1/elo_best_prediction.html">ver1.1</a>
+       (2026.06.17更新)
+      </p>
+      <p>
+       <a href="data/ver.1.0/j1_2025_prediction_prev04.html">ver1.0</a>
+       (2026.06.11更新)
+      </p>
+    </section>
+     <section>
+      <nav class="site-nav">
+        <a href="index.html">トップ</a>
+        <a href="model.html">モデル説明</a>
+        <a href="devlog.html">開発ログ</a>
+        <a href="glossary.html">用語集</a>
+      </nav>
+    </section>                                                                                                                                                                                  
+
 </body>
 </html>

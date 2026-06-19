@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>大勝補正 3年比較</title>
+  <style>
+    body {
+      font-family: Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+      margin: 40px;
+      background: #f7f7f7;
+      color: #222;
+    }
+    h1 { margin-bottom: 8px; }
+    .note { line-height: 1.8; color: #555; margin-bottom: 24px; }
+    .table-wrap {
+      overflow-x: auto;
+      background: white;
+      padding: 16px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px 10px;
+      text-align: center;
+      white-space: nowrap;
+    }
+    th { background: #222; color: white; }
+    tr:nth-child(even) { background: #f5f5f5; }
+  </style>
+</head>
+<body>
+  <h1>大勝補正 3年比較</h1>
+  <div class="note">
+    <p>
+      2022→2023、2023→2024、2024→2025を対象に、PREV_WEIGHT=0.20 / PREV_DECAY=0.995、
+      ELO_LAMBDA_WEIGHT=0.20を固定し、大勝補正 raw / cap4 / cap3 を比較しています。
+    </p>
+    <p>
+      λは得点のみで作成し、シュート数・枠内シュート数・相性Effect・終盤補正は使っていません。
+      N_SIM_SEARCH=10000, LAMBDA_CAP=3.5, CURRENT_DECAY=1.0。
+    </p>
+  </div>
+  <div class="table-wrap">
+    <table border="1" class="dataframe prediction-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>rank</th>
+      <th>prev_setting_name</th>
+      <th>prev_weight</th>
+      <th>prev_decay</th>
+      <th>elo_lambda_weight</th>
+      <th>goal_adjust_name</th>
+      <th>goal_adjust_mode</th>
+      <th>goal_cap_for_strength</th>
+      <th>mean_mae</th>
+      <th>std_mae</th>
+      <th>mean_prob_actual_position</th>
+      <th>mean_sim_draw_rate</th>
+      <th>mae_2023</th>
+      <th>mae_2024</th>
+      <th>mae_2025</th>
+      <th>delta_vs_raw</th>
+      <th>delta_vs_cap4</th>
+      <th>delta_vs_cap3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>prev020_decay0995</td>
+      <td>0.2</td>
+      <td>0.995</td>
+      <td>0.2</td>
+      <td>cap4</td>
+      <td>cap</td>
+      <td>4.0</td>
+      <td>2.2910</td>
+      <td>0.2697</td>
+      <td>0.1399</td>
+      <td>0.2547</td>
+      <td>2.0367</td>
+      <td>2.5738</td>
+      <td>2.2626</td>
+      <td>NaN</td>
+      <td>0.0000</td>
+      <td>-0.0161</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>prev020_decay0995</td>
+      <td>0.2</td>
+      <td>0.995</td>
+      <td>0.2</td>
+      <td>cap3</td>
+      <td>cap</td>
+      <td>3.0</td>
+      <td>2.3071</td>
+      <td>0.2527</td>
+      <td>0.1363</td>
+      <td>0.2549</td>
+      <td>2.0626</td>
+      <td>2.5672</td>
+      <td>2.2915</td>
+      <td>NaN</td>
+      <td>0.0161</td>
+      <td>0.0000</td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

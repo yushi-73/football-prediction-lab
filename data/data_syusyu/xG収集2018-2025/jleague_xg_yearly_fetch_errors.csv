@@ -1,0 +1,5 @@
+﻿season,league,stat,url,error
+2026,j2,xg,https://www.jleague.jp/stats/j2/club/2026/expected_goals/,RuntimeError('No rows parsed')
+2026,j2,xga,https://www.jleague.jp/stats/j2/club/2026/expected_goals_against/,RuntimeError('No rows parsed')
+2026,j3,xg,https://www.jleague.jp/stats/j3/club/2026/expected_goals/,RuntimeError('No rows parsed')
+2026,j3,xga,https://www.jleague.jp/stats/j3/club/2026/expected_goals_against/,RuntimeError('No rows parsed')

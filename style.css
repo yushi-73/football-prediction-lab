@@ -7,7 +7,7 @@ body {
 }
 
 header {
-  background: #172554;
+  background:#9400d3 ;
   color: white;
   padding: 48px 24px;
   text-align: center;
@@ -39,5 +39,201 @@ section {
 
 h2 {
   margin-top: 0;
+  color:#9400d3;
+}
+
+.prediction-section {
+  margin: 40px auto;
+  max-width: 1100px;
+  padding: 24px;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+#prediction-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  font-size: 14px;
+}
+
+#prediction-table th,
+#prediction-table td {
+  border: 1px solid #ddd;
+  padding: 8px 10px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+#prediction-table th {
+  background: #222;
+  color: #fff;
+}
+
+#prediction-table tbody tr:nth-child(even) {
+  background: #f5f5f5;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background: #f1f5f9;
   color: #172554;
+}
+
+td {
+  background: #ffffff;
+}
+
+.log-entry {
+  border-left: 6px solid #172554;
+}
+
+.log-meta {
+  display: inline-block;
+  background: #e0e7ff;
+  color: #172554;
+  font-weight: bold;
+  padding: 6px 12px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+}
+
+.log-entry h2 {
+  margin-bottom: 8px;
+}
+
+.log-entry h3 {
+  margin-top: 20px;
+  margin-bottom: 8px;
+  color: #334155;
+  font-size: 18px;
+}
+
+.log-entry p {
+  margin-top: 0;
+}
+
+.log-entry ul {
+  margin-top: 8px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background: #f1f5f9;
+  color: #172554;
+}
+
+td {
+  background: #ffffff;
+}
+
+/* =========================
+   用語集ページ
+========================= */
+
+.glossary-intro,
+.glossary-index,
+.glossary-item {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  margin: 24px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.glossary-index ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px 20px;
+  padding-left: 20px;
+}
+
+.glossary-index a {
+  color: #2b5caa;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.glossary-index a:hover {
+  text-decoration: underline;
+}
+
+.glossary-item {
+  scroll-margin-top: 24px;
+}
+
+.glossary-item h2 {
+  border-left: 6px solid #2b5caa;
+  padding-left: 12px;
+  margin-bottom: 16px;
+}
+
+.glossary-item p {
+  line-height: 1.9;
+  margin-bottom: 12px;
+}
+
+.devlog-card {
+  background: #fff;
+  border-left: 6px solid #0b1f5c;
+  border-radius: 14px;
+  padding: 28px 32px;
+  margin: 32px 0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.devlog-meta {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.devlog-date,
+.devlog-version {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: #dfe5ff;
+  color: #0b1f5c;
+  font-weight: 700;
+}
+
+.devlog-card h2 {
+  color: #8a00e6;
+  margin-bottom: 24px;
+}
+
+.devlog-card h3 {
+  margin-top: 24px;
+  color: #111827;
+}
+
+.devlog-card li {
+  line-height: 1.9;
+  margin-bottom: 6px;
 }

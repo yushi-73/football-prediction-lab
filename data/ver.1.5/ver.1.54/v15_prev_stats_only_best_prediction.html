@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>J1 順位予測 ver.1.5 前年スタッツのみ</title>
+  <style>
+    body {
+      font-family: Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+      margin: 40px;
+      background: #f7f7f7;
+      color: #222;
+    }
+    h1 { margin-bottom: 8px; }
+    .note { line-height: 1.8; color: #555; margin-bottom: 24px; }
+    .table-wrap {
+      overflow-x: auto;
+      background: white;
+      padding: 16px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { border: 1px solid #ddd; padding: 8px 10px; text-align: center; white-space: nowrap; }
+    th { background: #222; color: white; }
+    tr:nth-child(even) { background: #f5f5f5; }
+  </style>
+</head>
+<body>
+  <h1>J1 順位予測 ver.1.5 前年スタッツのみ</h1>
+  <div class="note">
+    <p>
+      前年公式チームスタッツから前年レーティングを作成し、当年前半の攻守係数と混合した予測結果です。
+      予測順位はシミュレーション上の平均順位で並べています。
+    </p>
+  </div>
+  <div class="table-wrap">
+    <table border="1" class="dataframe prediction-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>予測順位</th>
+      <th>model</th>
+      <th>prev_weight</th>
+      <th>attack_weights</th>
+      <th>defense_weights</th>
+      <th>年度</th>
+      <th>チーム</th>
+      <th>実順位</th>
+      <th>平均予測順位</th>
+      <th>順位誤差</th>
+      <th>最頻順位</th>
+      <th>優勝確率</th>
+      <th>上位3確率</th>
+      <th>上位5確率</th>
+      <th>下位3確率</th>
+      <th>平均勝点</th>
+      <th>平均得点</th>
+      <th>平均失点</th>
+      <th>平均得失点差</th>
+      <th>Elo</th>
+      <th>前年J1試合数</th>
+      <th>有効前年重み</th>
+      <th>前年リーグ</th>
+      <th>前年攻撃スタッツ係数</th>
+      <th>前年守備悪化係数</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>v1.5_prev_stats_only</td>
+      <td>0.1</td>
+      <td>{'goals': 0.3, 'xg': 0.4, 'sot': 0.2, 'shots': 0.1}</td>
+      <td>{'ga': 0.35, 'xga': 0.35, 'sota': 0.2, 'sa': 0.1}</td>
+      <td>2025</td>
+      <td>鹿島</td>
+      <td>1</td>
+      <td>1.396</td>
+      <td>0.396</td>
+      <td>1</td>
+      <td>76.2%</td>
+      <td>96.1%</td>
+      <td>99.4%</td>
+      <td>0.0%</td>
+      <td>74.777</td>
+      <td>58.025</td>
+      <td>31.275</td>
+      <td>26.751</td>
+      <td>1612.314</td>
+      <td>38</td>
+      <td>0.1</td>
+      <td>j1</td>
+      <td>1.034</td>
+      <td>0.871</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>v1.5_prev_stats_only</td>
+      <td>0.1</td>
+      <td>{'goals': 0.3, 'xg': 0.4, 'sot': 0.2, 'shots': 0.1}</td>
+      <td>{'ga': 0.35, 'xga': 0.35, 'sota': 0.2, 'sa': 0.1}</td>
+      <td>2025</td>
+      <td>広島</td>
+      <td>4</td>
+      <td>3.925</td>
+      <td>0.075</td>
+      <td>2</td>
+      <td>7.5%</td>
+      <td>50.7%</td>
+      <td>77.9%</td>
+      <td>0.0%</td>
+      <td>65.134</td>
+      <td>44.039</td>
+      <td>30.071</td>
+      <td>13.968</td>
+      <td>1589.267</td>
+      <td>38</td>
+      <td>0.1</td>
+      <td>j1</td>
+      <td>1.378</td>
+      <td>0.814</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>v1.5_prev_stats_only</td>
+      <td>0.1</td>
+      <td>{'goals': 0.3, 'xg': 0.4, 'sot': 0.2, 'shots': 0.1}</td>
+      <td>{'ga': 0.35, 'xga': 0.35, 'sota': 0.2, 'sa': 0.1}</td>
+      <td>2025</td>
+      <td>川崎F</td>
+      <td>8</td>
+      <td>4.548</td>
+      <td>3.452</td>
+      <td>3</td>
+      <td>5.1%</td>
+      <td>39.4%</td>
+      <td>69.0%</td>
+      <td>0.0%</td>
+      <td>63.070</td>
+      <td>60.977</td>
+      <td>40.144</td>
+      <td>20.833</td>
+      <td>1576.772</td>
+      <td>38</td>
+      <td>0.1</td>
+      <td>j1</td>
+      <td>1.252</td>
+      <td>1.115</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>v1.5_prev_stats_only</td>
+      <td>0.1</td>
+      <td>{'goals': 0.3, 'xg': 0.4, 'sot': 0.2, 'shots': 0.1}</td>
+      <td>{'ga': 0.35, 'xga': 0.35, 'sota': 0.2, 'sa': 0.1}</td>
+      <td>2025</td>
+      <td>京都</td>
+      <td>3</td>
+      <td>4.592</td>
+      <td>1.592</td>
+      <td>3</td>
+      <td>4.4%</td>
+      <td>37.3%</td>
+      <td>68.2%</td>
+      <td>0.0%</td>
+      <td>63.175</td>
+      <td>54.855</td>
+      <td>40.541</td>
+      <td>14.313</td>
+      <td>1533.508</td>
+      <td>38</td>
+      <td>0.1</td>
+      <td>j1</td>
+      <td>0.938</td>
+      <td>1.140</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>v1.5_prev_stats_only</td>
+      <td>0.1</td>
+      <td>{'goals': 0.3, 'xg': 0.4, 'sot': 0.2, 'shots': 0.1}</td>
+      <td>{'ga': 0.35, 'xga': 0.35, 'sota': 0.2, 'sa': 0.1}</td>
+      <td>2025</td>
+      <td>柏</td>
+      <td>2</td>
+      <td>5.056</td>
+      <td>3.056</td>
+      <td>4</td>
+      <td>3.3%</td>
+      <td>30.7%</td>
+      <td>60.4%</td>
+      <td>0.0%</td>
+      <td>62.449</td>
+      <td>43.958</td>
+      <td>35.258</td>
+      <td>8.699</td>
+      <td>1497.536</td>
+      <td>38</td>
+      <td>0.1</td>
+      <td>j1</td>
+      <td>0.972</td>
+      <td>0.927</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>v1.5_prev_stats_only</td>
+      <td>0.1</td>
+      <td>{'goals': 0.3, 'xg': 0.4, 'sot': 0.2, 'shots': 0.1}</td>
+      <td>{'ga': 0.35, 'xga': 0.35, 'sota': 0.2, 'sa': 0.1}</td>
+      <td>2025</td>
+      <td>神戸</td>
+      <td>5</td>
+      <td>5.574</td>
+      <td>0.574</td>
+      <td>5</td>
+      <td>2.4%</td>
+      <td>24.3%</td>
+      <td>52.1%</td>
+      <td>0.0%</td>
+      <td>61.154</td>
+      <td>48.690</td>
+      <td>39.132</td>
+      <td>9.558</td>
+      <td>1588.669</td>
+      <td>38</td>
+      <td>0.1</td>
+      <td>j1</td>
+      <td>1.196</td>
+      <td>0.716</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>v1.5_prev_stats_only</td>
+      <td>0.1</td>
+      <td>{'goals': 0.3, 'xg': 0.4, 'sot': 0.2, 'shots': 0.1}</td>
+      <td>{'ga': 0.35, 'xga': 0.35, 'sota': 0.2, 'sa': 0.1}</td>
+      <td>2025</td>
+      <td>浦和</td>
+      <td>7</td>
+      <td>6.093</td>
+      <td>0.907</td>
+      <td>6</td>
+      <td>0.9%</td>
+      <td>15.1%</td>
+      <td>43.0%</td>
+      <td>0.0%</td>
+      <td>59.814</td>
+      <td>46.258</td>
+      <td>36.397</td>
+      <td>9.861</td>
+      <td>1542.678</td>
+      <td>38</td>
+      <td>0.1</td>
+      <td>j1</td>
+      <td>1.023</td>
+      <td>0.912</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>v1.5_prev_stats_only</td>
+      <td>0.1</td>
+      <td>{'goals': 0.3, 'xg': 0.4, 'sot': 0.2, 'shots': 0.1}</td>
+      <td>{'ga': 0.35, 'xga': 0.35, 'sota': 0.2, 'sa': 0.1}</td>
+      <td>2025</td>
+      <td>C大阪</td>
+      <td>10</td>
+      <td>8.678</td>
+      <td>1.322</td>
+      <td>8</td>
+      <td>0.1%</td>
+      <td>3.2%</td>
+      <td>12.7%</td>
+      <td>0.2%</td>
+      <td>54.600</td>
+      <td>55.570</td>
+      <td>50.054</td>
+      <td>5.516</td>
+      <td>1512.272</td>
+      <td>38</td>
+      <td>0.1</td>
+      <td>j1</td>
+      <td>0.979</td>
+      <td>0.970</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>v1.5_prev_stats_only</td>
+      <td>0.1</td>
+      <td>{'goals': 0.3, 'xg': 0.4, 'sot': 0.2, 'shots': 0.1}</td>
+      <td>{'ga': 0.35, 'xga': 0.35, 'sota': 0.2, 'sa': 0.1}</td>
+      <td>2025</td>
+      <td>清水</td>
+      <td>14</td>
+      <td>9.985</td>
+      <td>4.015</td>
+      <td>9</td>
+      <td>0.0%</td>
+      <td>1.5%</td>
+      <td>6.7%</td>
+      <td>1.0%</td>
+      <td>52.233</td>
+      <td>52.292</td>
+      <td>50.338</td>
+      <td>1.954</td>
+      <td>1495.348</td>
+      <td>0</td>
+      <td>0.1</td>
+      <td>j2</td>
+      <td>1.188</td>
+      <td>0.877</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>v1.5_prev_stats_only</td>
+      <td>0.1</td>
+      <td>{'goals': 0.3, 'xg': 0.4, 'sot': 0.2, 'shots': 0.1}</td>
+      <td>{'ga': 0.35, 'xga': 0.35, 'sota': 0.2, 'sa': 0.1}</td>
+      <td>2025</td>
+      <td>町田</td>
+      <td>6</td>
+      <td>10.533</td>
+      <td>4.533</td>
+      <td>10</td>
+      <td>0.0%</td>
+      <td>1.0%</td>
+      <td>4.8%</td>
+      <td>1.4%</td>
+      <td>51.387</td>
+      <td>44.163</td>
+      <td>44.541</td>
+      <td>-0.378</td>
+      <td>1521.044</td>
+      <td>38</td>
+      <td>0.1</td>
+      <td>j1</td>
+      <td>0.984</td>
+      <td>0.731</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>v1.5_prev_stats_only</td>
+      <td>0.1</td>
+      <td>{'goals': 0.3, 'xg': 0.4, 'sot': 0.2, 'shots': 0.1}</td>
+      <td>{'ga': 0.35, 'xga': 0.35, 'sota': 0.2, 'sa': 0.1}</td>
+      <td>2025</td>
+      <td>名古屋</td>
+      <td>16</td>
+      <td>11.355</td>
+      <td>4.645</td>
+      <td>12</td>
+      <td>0.0%</td>
+      <td>0.4%</td>
+      <td>2.4%</td>
+      <td>2.3%</td>
+      <td>49.794</td>
+      <td>48.862</td>
+      <td>49.585</td>
+      <td>-0.722</td>
+      <td>1494.408</td>
+      <td>38</td>
+      <td>0.1</td>
+      <td>j1</td>
+      <td>0.839</td>
+      <td>0.920</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>v1.5_prev_stats_only</td>
+      <td>0.1</td>
+      <td>{'goals': 0.3, 'xg': 0.4, 'sot': 0.2, 'shots': 0.1}</td>
+      <td>{'ga': 0.35, 'xga': 0.35, 'sota': 0.2, 'sa': 0.1}</td>
+      <td>2025</td>
+      <td>G大阪</td>
+      <td>9</td>
+      <td>11.852</td>
+      <td>2.852</td>
+      <td>12</td>
+      <td>0.0%</td>
+      <td>0.2%</td>
+      <td>1.8%</td>
+      <td>3.5%</td>
+      <td>49.192</td>
+      <td>45.513</td>
+      <td>51.382</td>
+      <td>-5.869</td>
+      <td>1523.068</td>
+      <td>38</td>
+      <td>0.1</td>
+      <td>j1</td>
+      <td>1.000</td>
+      <td>0.890</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>v1.5_prev_stats_only</td>
+      <td>0.1</td>
+      <td>{'goals': 0.3, 'xg': 0.4, 'sot': 0.2, 'shots': 0.1}</td>
+      <td>{'ga': 0.35, 'xga': 0.35, 'sota': 0.2, 'sa': 0.1}</td>
+      <td>2025</td>
+      <td>岡山</td>
+      <td>13</td>
+      <td>12.560</td>
+      <td>0.440</td>
+      <td>12</td>
+      <td>0.0%</td>
+      <td>0.1%</td>
+      <td>0.8%</td>
+      <td>4.2%</td>
+      <td>47.678</td>
+      <td>32.398</td>
+      <td>35.843</td>
+      <td>-3.445</td>
+      <td>1494.096</td>
+      <td>0</td>
+      <td>0.1</td>
+      <td>j2</td>
+      <td>1.062</td>
+      <td>0.873</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>v1.5_prev_stats_only</td>
+      <td>0.1</td>
+      <td>{'goals': 0.3, 'xg': 0.4, 'sot': 0.2, 'shots': 0.1}</td>
+      <td>{'ga': 0.35, 'xga': 0.35, 'sota': 0.2, 'sa': 0.1}</td>
+      <td>2025</td>
+      <td>福岡</td>
+      <td>12</td>
+      <td>14.045</td>
+      <td>2.045</td>
+      <td>15</td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+      <td>0.4%</td>
+      <td>11.9%</td>
+      <td>45.229</td>
+      <td>30.647</td>
+      <td>39.071</td>
+      <td>-8.424</td>
+      <td>1463.359</td>
+      <td>38</td>
+      <td>0.1</td>
+      <td>j1</td>
+      <td>0.712</td>
+      <td>0.855</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>v1.5_prev_stats_only</td>
+      <td>0.1</td>
+      <td>{'goals': 0.3, 'xg': 0.4, 'sot': 0.2, 'shots': 0.1}</td>
+      <td>{'ga': 0.35, 'xga': 0.35, 'sota': 0.2, 'sa': 0.1}</td>
+      <td>2025</td>
+      <td>東京V</td>
+      <td>17</td>
+      <td>14.281</td>
+      <td>2.719</td>
+      <td>15</td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+      <td>0.2%</td>
+      <td>13.0%</td>
+      <td>44.956</td>
+      <td>26.335</td>
+      <td>36.777</td>
+      <td>-10.442</td>
+      <td>1497.615</td>
+      <td>38</td>
+      <td>0.1</td>
+      <td>j1</td>
+      <td>0.966</td>
+      <td>0.936</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>v1.5_prev_stats_only</td>
+      <td>0.1</td>
+      <td>{'goals': 0.3, 'xg': 0.4, 'sot': 0.2, 'shots': 0.1}</td>
+      <td>{'ga': 0.35, 'xga': 0.35, 'sota': 0.2, 'sa': 0.1}</td>
+      <td>2025</td>
+      <td>湘南</td>
+      <td>19</td>
+      <td>15.946</td>
+      <td>3.054</td>
+      <td>17</td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+      <td>31.7%</td>
+      <td>41.963</td>
+      <td>29.101</td>
+      <td>46.150</td>
+      <td>-17.049</td>
+      <td>1453.500</td>
+      <td>38</td>
+      <td>0.1</td>
+      <td>j1</td>
+      <td>1.028</td>
+      <td>1.068</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>v1.5_prev_stats_only</td>
+      <td>0.1</td>
+      <td>{'goals': 0.3, 'xg': 0.4, 'sot': 0.2, 'shots': 0.1}</td>
+      <td>{'ga': 0.35, 'xga': 0.35, 'sota': 0.2, 'sa': 0.1}</td>
+      <td>2025</td>
+      <td>FC東京</td>
+      <td>11</td>
+      <td>16.330</td>
+      <td>5.329</td>
+      <td>18</td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+      <td>38.8%</td>
+      <td>40.994</td>
+      <td>38.082</td>
+      <td>54.800</td>
+      <td>-16.718</td>
+      <td>1468.694</td>
+      <td>38</td>
+      <td>0.1</td>
+      <td>j1</td>
+      <td>0.936</td>
+      <td>1.058</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>v1.5_prev_stats_only</td>
+      <td>0.1</td>
+      <td>{'goals': 0.3, 'xg': 0.4, 'sot': 0.2, 'shots': 0.1}</td>
+      <td>{'ga': 0.35, 'xga': 0.35, 'sota': 0.2, 'sa': 0.1}</td>
+      <td>2025</td>
+      <td>横浜FC</td>
+      <td>18</td>
+      <td>16.521</td>
+      <td>1.479</td>
+      <td>18</td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+      <td>41.3%</td>
+      <td>40.301</td>
+      <td>27.289</td>
+      <td>39.762</td>
+      <td>-12.473</td>
+      <td>1467.586</td>
+      <td>0</td>
+      <td>0.1</td>
+      <td>j2</td>
+      <td>1.134</td>
+      <td>0.789</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>v1.5_prev_stats_only</td>
+      <td>0.1</td>
+      <td>{'goals': 0.3, 'xg': 0.4, 'sot': 0.2, 'shots': 0.1}</td>
+      <td>{'ga': 0.35, 'xga': 0.35, 'sota': 0.2, 'sa': 0.1}</td>
+      <td>2025</td>
+      <td>新潟</td>
+      <td>20</td>
+      <td>18.297</td>
+      <td>1.703</td>
+      <td>20</td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+      <td>74.4%</td>
+      <td>35.925</td>
+      <td>38.374</td>
+      <td>57.098</td>
+      <td>-18.724</td>
+      <td>1419.564</td>
+      <td>38</td>
+      <td>0.1</td>
+      <td>j1</td>
+      <td>0.909</td>
+      <td>1.048</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>v1.5_prev_stats_only</td>
+      <td>0.1</td>
+      <td>{'goals': 0.3, 'xg': 0.4, 'sot': 0.2, 'shots': 0.1}</td>
+      <td>{'ga': 0.35, 'xga': 0.35, 'sota': 0.2, 'sa': 0.1}</td>
+      <td>2025</td>
+      <td>横浜FM</td>
+      <td>15</td>
+      <td>18.434</td>
+      <td>3.434</td>
+      <td>20</td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+      <td>0.0%</td>
+      <td>76.2%</td>
+      <td>35.245</td>
+      <td>38.523</td>
+      <td>55.733</td>
+      <td>-17.210</td>
+      <td>1461.152</td>
+      <td>38</td>
+      <td>0.1</td>
+      <td>j1</td>
+      <td>1.190</td>
+      <td>1.170</td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>
