@@ -1,0 +1,2 @@
+﻿input,matches,year_min,year_max,base_rating,initial_j1,initial_j2,k_factor,home_adv,carryover,result_mode,use_mov,mov_cap
+j1_j2_elo_input_1993_2025.csv,19858,1993,2025,1500.0,1500.0,1450.0,20.0,60.0,0.85,normal,True,2.5

@@ -1,0 +1,2 @@
+﻿input_csv,elo_history_csv,season_start_csv,outdir,target_division,years,betas,n_sims,seed,decay,prev_decay,prev_weight,goal_cap_for_strength,lambda_cap,min_lambda,prior_division_mode,strength_low,strength_high,same_date_policy,parsed_years,parsed_betas
+j1_j2_elo_input_1993_2025.csv,elo_outputs/j1_j2_elo_match_history.csv,elo_outputs/j1_j2_elo_season_start_ratings.csv,elo_halfseason_same_date_outputs,J1,"2023,2024,2025","0,0.05,0.10,0.15,0.20,0.30",10000,42,1.0,0.995,0.2,4.0,3.5,0.01,all,0.35,2.5,nearest,"2023,2024,2025","0.0,0.05,0.1,0.15,0.2,0.3"

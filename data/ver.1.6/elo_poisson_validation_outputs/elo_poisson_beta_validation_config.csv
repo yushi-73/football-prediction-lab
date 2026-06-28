@@ -1,0 +1,2 @@
+﻿results_path,elo_history_path,season_start_path,eval_start_year,eval_end_year,cutoff_matches_list,betas,n_sims,seed,prior_matches,lambda_cap,min_lambda,strength_low,strength_high,use_j1_only
+j1_j2_elo_input_1993_2025.csv,elo_outputs\j1_j2_elo_match_history.csv,elo_outputs\j1_j2_elo_season_start_ratings.csv,2012,2025,20,"0.0,0.05,0.1,0.15,0.2,0.3",1000,42,3.0,3.5,0.05,0.35,2.5,True
