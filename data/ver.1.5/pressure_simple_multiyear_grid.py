@@ -120,63 +120,7 @@ PRESSURE_SETTING_CANDIDATES = [
         "min_underdog_lambda_diff": 0.10,
         "underdog_lambda_diff_scale": 0.75,
         "max_draw_shift": 0.00,
-    },
-    {
-        "name": "title_weak",
-        "use_pressure": True,
-        "pressure_window_games": 8,
-        "title_boost": 0.03,
-        "title_points_window": 8.0,
-        "title_rank_cutoff": 5,
-        "relegation_draw_shift": 0.00,
-        "relegation_points_window": 6.0,
-        "relegation_rank_buffer": 3,
-        "min_underdog_lambda_diff": 0.10,
-        "underdog_lambda_diff_scale": 0.75,
-        "max_draw_shift": 0.00,
-    },
-    {
-        "name": "title_mid",
-        "use_pressure": True,
-        "pressure_window_games": 8,
-        "title_boost": 0.05,
-        "title_points_window": 8.0,
-        "title_rank_cutoff": 5,
-        "relegation_draw_shift": 0.00,
-        "relegation_points_window": 6.0,
-        "relegation_rank_buffer": 3,
-        "min_underdog_lambda_diff": 0.10,
-        "underdog_lambda_diff_scale": 0.75,
-        "max_draw_shift": 0.00,
-    },
-    {
-        "name": "relegation_draw_weak",
-        "use_pressure": True,
-        "pressure_window_games": 8,
-        "title_boost": 0.00,
-        "title_points_window": 8.0,
-        "title_rank_cutoff": 5,
-        "relegation_draw_shift": 0.05,
-        "relegation_points_window": 6.0,
-        "relegation_rank_buffer": 3,
-        "min_underdog_lambda_diff": 0.10,
-        "underdog_lambda_diff_scale": 0.75,
-        "max_draw_shift": 0.07,
-    },
-    {
-        "name": "title_weak_relegation_draw_weak",
-        "use_pressure": True,
-        "pressure_window_games": 8,
-        "title_boost": 0.03,
-        "title_points_window": 8.0,
-        "title_rank_cutoff": 5,
-        "relegation_draw_shift": 0.05,
-        "relegation_points_window": 6.0,
-        "relegation_rank_buffer": 3,
-        "min_underdog_lambda_diff": 0.10,
-        "underdog_lambda_diff_scale": 0.75,
-        "max_draw_shift": 0.07,
-    },
+    }
 ]
 
 # 下位3クラブを残留争いの基準として扱う。
@@ -220,7 +164,7 @@ OUTPUT_DETAIL_CSV = BASE_DIR / "pressure_simple_multiyear_detail.csv"
 OUTPUT_SUMMARY_CSV = BASE_DIR / "pressure_simple_multiyear_summary.csv"
 OUTPUT_SUMMARY_HTML = BASE_DIR / "pressure_simple_multiyear_summary.html"
 OUTPUT_BEST_PREDICTION_CSV = BASE_DIR / "pressure_simple_multiyear_best_predictions.csv"
-
+OUTPUT_ALL_PREDICTIONS_CSV = BASE_DIR / "pressure_simple_multiyear_all_predictions.csv"
 
 # =========================
 # 2. チーム名処理
@@ -1754,6 +1698,7 @@ def main():
     best_pressure_setting = str(summary_df.iloc[0]["pressure_setting"])
     best_predictions_df = predictions_df[predictions_df["pressure_setting"] == best_pressure_setting].copy()
     best_predictions_df.to_csv(OUTPUT_BEST_PREDICTION_CSV, index=False, encoding="utf-8-sig")
+    predictions_df.to_csv(OUTPUT_ALL_PREDICTIONS_CSV, index=False, encoding="utf-8-sig")
 
     print("\n==============================")
     print("検証結果")

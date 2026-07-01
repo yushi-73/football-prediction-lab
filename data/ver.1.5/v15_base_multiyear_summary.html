@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ver1.5 基準モデル 3年検証</title>
+  <style>
+    body {
+      font-family: Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+      margin: 40px;
+      background: #f7f7f7;
+      color: #222;
+    }
+    h1 { margin-bottom: 8px; }
+    .note { line-height: 1.8; color: #555; margin-bottom: 24px; }
+    .table-wrap {
+      overflow-x: auto;
+      background: white;
+      padding: 16px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px 10px;
+      text-align: center;
+      white-space: nowrap;
+    }
+    th { background: #222; color: white; }
+    tr:nth-child(even) { background: #f5f5f5; }
+  </style>
+</head>
+<body>
+  <h1>ver1.5 基準モデル 3年検証</h1>
+  <div class="note">
+    <p>
+      終盤補正・監督解任ブーストを入れない基準モデルです。
+      2022→2023、2023→2024、2024→2025を対象に、3年分の順位予測精度を検証しています。
+    </p>
+    <p>
+      PREV_WEIGHT=0.2, PREV_DECAY=0.995, ELO_LAMBDA_WEIGHT=0.2,
+      COMPAT_WEIGHT=0.2, DRAW_FACTOR=1.2, MAX_MATCH_DRAW_PROB=0.33,
+      LAMBDA_CAP=3.5, N_SIM=3000。
+    </p>
+  </div>
+  <div class="table-wrap">
+    <table border="1" class="dataframe prediction-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>model_version</th>
+      <th>target_years</th>
+      <th>prev_weight</th>
+      <th>prev_decay</th>
+      <th>elo_lambda_weight</th>
+      <th>compat_weight</th>
+      <th>current_decay</th>
+      <th>shrinkage</th>
+      <th>draw_factor</th>
+      <th>max_match_draw_prob</th>
+      <th>lambda_cap</th>
+      <th>goal_adjust_name</th>
+      <th>goal_adjust_mode</th>
+      <th>goal_cap_for_strength</th>
+      <th>promoted_prior_name</th>
+      <th>n_sim</th>
+      <th>mean_mae</th>
+      <th>std_mae</th>
+      <th>mean_prob_actual_position</th>
+      <th>mean_sim_draw_rate</th>
+      <th>mean_title_contender_error</th>
+      <th>mean_bottom3_error</th>
+      <th>mae_2023</th>
+      <th>prob_actual_position_2023</th>
+      <th>sim_draw_rate_2023</th>
+      <th>mae_2024</th>
+      <th>prob_actual_position_2024</th>
+      <th>sim_draw_rate_2024</th>
+      <th>mae_2025</th>
+      <th>prob_actual_position_2025</th>
+      <th>sim_draw_rate_2025</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>v1.5</td>
+      <td>2023,2024,2025</td>
+      <td>0.2</td>
+      <td>0.995</td>
+      <td>0.2</td>
+      <td>0.2</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.2</td>
+      <td>0.33</td>
+      <td>3.5</td>
+      <td>cap4</td>
+      <td>cap</td>
+      <td>4</td>
+      <td>none</td>
+      <td>3000</td>
+      <td>2.293</td>
+      <td>0.2778</td>
+      <td>0.1388</td>
+      <td>0.2906</td>
+      <td>1.8292</td>
+      <td>1.9633</td>
+      <td>2.0333</td>
+      <td>0.172333</td>
+      <td>0.276902</td>
+      <td>2.5859</td>
+      <td>0.09535</td>
+      <td>0.285635</td>
+      <td>2.2597</td>
+      <td>0.148667</td>
+      <td>0.309156</td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+</body>
+</html>
