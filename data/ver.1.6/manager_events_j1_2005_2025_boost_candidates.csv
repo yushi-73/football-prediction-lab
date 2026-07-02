@@ -1,0 +1,119 @@
+﻿event_id,competition,season,team,old_manager,new_manager,bridge_manager,last_old_manager_match_date,first_new_manager_match_date,effective_change_date,first_stable_new_manager_match_date,matches_played_at_change,remaining_matches_at_change_including_first_new,old_manager_matches_before_change,new_manager_matches_until_next_change_or_season_end,team_season_matches,next_manager,next_change_date,event_kind_auto,temporary_returns_removed_in_team_season,is_boost_candidate_auto,source
+J1C_2005_0001,J1,2005,名古屋,ネルシーニョ,中田 仁司,,2005-09-17,2005-09-24,2005-09-24,2005-09-24,24,10,24,10,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2005_0002,J1,2005,大分,ファンボ グァン,ペリクレス シャムスカ,アーリ スカンズ,2005-08-27,2005-09-03,2005-09-03,2005-09-10,21,13,21,13,34,,,bridge_to_stable_manager,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2005_0003,J1,2005,東京V,オズワルド アルディレス,バドン,石崎 信弘,2005-07-17,2005-07-23,2005-07-23,2005-08-21,17,17,17,17,34,,,bridge_to_stable_manager,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2005_0004,J1,2005,神戸,松永 英機,エメルソン レオン,パベル ジェハーク,2005-04-16,2005-04-23,2005-04-23,2005-05-01,6,28,6,6,34,パベル ジェハーク,2005-07-02,bridge_to_stable_manager,1,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2005_0005,J1,2005,神戸,エメルソン レオン,パベル ジェハーク,,2005-05-14,2005-07-02,2005-07-02,2005-07-02,12,22,4,22,34,,,direct_change,1,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2006_0006,J1,2006,C大阪,小林 伸二,塚田 雄二,,2006-04-15,2006-04-22,2006-04-22,2006-04-22,8,26,8,26,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2006_0007,J1,2006,FC東京,アレッシャンドレ ガーロ,倉又 寿雄,,2006-08-12,2006-08-20,2006-08-20,2006-08-20,17,17,17,17,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2006_0008,J1,2006,京都,柱谷 幸一,美濃部 直彦,,2006-09-30,2006-10-06,2006-10-06,2006-10-06,25,9,25,9,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2006_0009,J1,2006,千葉,イビツァ オシム,アマル オシム,,2006-05-06,2006-07-19,2006-07-19,2006-07-19,12,22,12,22,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2006_0010,J1,2006,広島,小野 剛,望月 一頼,,2006-04-16,2006-04-22,2006-04-22,2006-04-22,8,26,8,4,34,ミハイロ ペトロビッチ,2006-07-19,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2006_0011,J1,2006,広島,望月 一頼,ミハイロ ペトロビッチ,,2006-05-06,2006-07-19,2006-07-19,2006-07-19,12,22,4,22,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2006_0012,J1,2006,横浜FM,岡田 武史,水沼 貴史,,2006-08-23,2006-08-27,2006-08-27,2006-08-27,19,15,19,15,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2006_0013,J1,2006,磐田,山本 昌邦,アジウソン,,2006-05-06,2006-07-12,2006-07-12,2006-07-12,11,23,11,23,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2006_0014,J1,2006,福岡,松田 浩,川勝 良一,,2006-05-06,2006-07-19,2006-07-19,2006-07-19,12,22,12,22,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2007_0015,J1,2007,大宮,ロバート ファーベーク,佐久間 悟,,2007-06-30,2007-08-11,2007-08-11,2007-08-11,18,16,18,16,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2007_0016,J1,2007,横浜FC,高木 琢也,ジュリオ レアル,,2007-08-25,2007-08-29,2007-08-29,2007-08-29,22,12,22,12,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2007_0017,J1,2007,磐田,アジウソン,内山 篤,,2007-09-01,2007-09-15,2007-09-15,2007-09-15,24,10,24,10,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2008_0018,J1,2008,千葉,ヨジップ クゼ,アレックス ミラー,澤入 重雄,2008-05-06,2008-05-10,2008-05-10,2008-06-29,11,23,11,23,34,,,bridge_to_stable_manager,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2008_0019,J1,2008,川崎F,関塚 隆,高畠 勉,,2008-04-05,2008-04-12,2008-04-12,2008-04-12,5,29,5,29,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2008_0020,J1,2008,横浜FM,桑原 隆,木村 浩吉,,2008-07-13,2008-07-16,2008-07-16,2008-07-16,16,18,16,18,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2008_0022,J1,2008,磐田,内山 篤,ハンス オフト,,2008-08-27,2008-09-13,2008-09-13,2008-09-13,23,11,23,11,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2009_0023,J1,2009,千葉,アレックス ミラー,江尻 篤彦,,2009-07-25,2009-08-01,2009-08-01,2009-08-01,19,15,19,15,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2009_0024,J1,2009,大分,ペリクレス シャムスカ,ランコ ポポビッチ,松山 博明,2009-07-12,2009-07-18,2009-07-18,2009-07-25,17,17,17,17,34,,,bridge_to_stable_manager,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2009_0025,J1,2009,柏,高橋 真一郎,ネルシーニョ,井原 正巳,2009-07-12,2009-07-19,2009-07-19,2009-08-02,17,17,17,17,34,,,bridge_to_stable_manager,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2009_0026,J1,2009,神戸,カイオ ジュニオール,和田 昌裕,,2009-06-27,2009-07-04,2009-07-04,2009-07-04,15,19,15,5,34,三浦 俊也,2009-08-15,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2009_0027,J1,2009,神戸,和田 昌裕,三浦 俊也,,2009-08-02,2009-08-15,2009-08-15,2009-08-15,20,14,5,14,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2010_0028,J1,2010,FC東京,城福 浩,大熊 清,,2010-09-18,2010-09-25,2010-09-25,2010-09-25,23,11,23,11,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2010_0029,J1,2010,京都,加藤 久,秋田 豊,,2010-07-25,2010-07-28,2010-07-28,2010-07-28,14,20,14,20,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2010_0030,J1,2010,大宮,チャン ウェリョン,鈴木 淳,,2010-04-24,2010-05-01,2010-05-01,2010-05-01,8,26,8,26,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2010_0031,J1,2010,広島,ミハイロ ペトロビッチ,横内 昭展,,2010-11-27,2010-12-04,2010-12-04,2010-12-04,33,1,33,1,34,,,late_short_caretaker_to_season_end,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2010_0032,J1,2010,神戸,三浦 俊也,和田 昌裕,,2010-09-11,2010-09-18,2010-09-18,2010-09-18,22,12,22,12,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2011_0033,J1,2011,広島,ミハイロ ペトロビッチ,ミハイロ ペトロビッチ,,2011-07-23,2011-07-23,2011-07-23,2011-07-23,17,17,18,17,34,,,direct_change,2,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2011_0034,J1,2011,浦和,ジェリコ ペトロビッチ,堀 孝史,,2011-10-15,2011-10-22,2011-10-22,2011-10-22,29,5,29,5,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2011_0035,J1,2011,甲府,三浦 俊也,佐久間 悟,,2011-08-06,2011-08-13,2011-08-13,2011-08-13,20,14,20,14,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2011_0036,J1,2011,福岡,篠田 善之,浅野 哲也,,2011-07-31,2011-08-07,2011-08-07,2011-08-07,19,15,19,15,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2012_0037,J1,2012,C大阪,セルジオ ソアレス,レビー クルピ,,2012-08-25,2012-09-01,2012-09-01,2012-09-01,23,11,23,11,34,,,direct_change,1,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2012_0039,J1,2012,大宮,鈴木 淳,ベルデニック,,2012-05-26,2012-06-16,2012-06-16,2012-06-16,13,21,13,21,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2012_0040,J1,2012,川崎F,相馬 直樹,風間 八宏,望月 達也,2012-04-08,2012-04-14,2012-04-14,2012-04-28,5,29,5,29,34,,,bridge_to_stable_manager,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2012_0041,J1,2012,新潟,黒崎 久志,柳下 正明,上野 展裕,2012-05-19,2012-05-26,2012-05-26,2012-06-16,12,22,12,21,34,栗原 克志,2012-12-01,bridge_to_stable_manager,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2012_0042,J1,2012,新潟,柳下 正明,栗原 克志,,2012-11-24,2012-12-01,2012-12-01,2012-12-01,33,1,20,1,34,,,late_short_caretaker_to_season_end,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2012_0043,J1,2012,神戸,和田 昌裕,安達 亮,,2012-04-28,2012-05-03,2012-05-03,2012-05-03,8,26,8,4,34,西野 朗,2012-05-26,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2012_0044,J1,2012,神戸,安達 亮,西野 朗,,2012-05-19,2012-05-26,2012-05-26,2012-05-26,12,22,4,19,34,安達 亮,2012-11-17,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2012_0045,J1,2012,神戸,西野 朗,安達 亮,,2012-11-07,2012-11-17,2012-11-17,2012-11-17,31,3,19,3,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2013_0046,J1,2013,大宮,ベルデニック,小倉 勉,岡本 武行,2013-08-10,2013-08-17,2013-08-17,2013-08-24,20,14,20,14,34,,,bridge_to_stable_manager,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2013_0047,J1,2013,磐田,森下 仁志,長澤 徹,,2013-05-03,2013-05-06,2013-05-06,2013-05-06,9,25,9,4,34,関塚 隆,2013-07-06,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2013_0048,J1,2013,磐田,長澤 徹,関塚 隆,,2013-05-25,2013-07-06,2013-07-06,2013-07-06,13,21,4,21,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2014_0049,J1,2014,C大阪,ランコ ポポビッチ,マルコ ペッツァイオリ,,2014-05-17,2014-07-15,2014-07-15,2014-07-15,13,21,13,9,34,大熊 裕司,2014-09-13,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2014_0050,J1,2014,C大阪,マルコ ペッツァイオリ,大熊 裕司,,2014-08-30,2014-09-13,2014-09-13,2014-09-13,22,12,9,12,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2014_0051,J1,2014,仙台,グラハム アーノルド,渡邉 晋,,2014-04-06,2014-04-12,2014-04-12,2014-04-12,6,28,6,28,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2014_0052,J1,2014,大宮,大熊 清,渋谷 洋樹,,2014-08-30,2014-09-13,2014-09-13,2014-09-13,22,12,22,12,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2014_0053,J1,2014,清水,アフシン ゴトビ,大榎 克己,,2014-07-27,2014-08-02,2014-08-02,2014-08-02,17,17,17,17,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2014_0054,J1,2014,鳥栖,ユン ジョンファン,吉田 恵,,2014-08-02,2014-08-11,2014-08-11,2014-08-11,18,16,18,16,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2015_0055,J1,2015,清水,大榎 克己,田坂 和昭,,2015-07-29,2015-08-12,2015-08-12,2015-08-12,22,12,22,12,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2015_0056,J1,2015,甲府,樋口 靖洋,佐久間 悟,,2015-05-10,2015-05-16,2015-05-16,2015-05-16,11,23,11,23,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2015_0057,J1,2015,鹿島,トニーニョ セレーゾ,石井 正忠,,2015-07-19,2015-07-25,2015-07-25,2015-07-25,20,14,20,14,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2016_0058,J1,2016,FC東京,城福 浩,篠田 善之,,2016-07-23,2016-07-30,2016-07-30,2016-07-30,22,12,22,12,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2016_0059,J1,2016,名古屋,小倉 隆史,ボシュコ ジュロブスキー,,2016-08-20,2016-08-27,2016-08-27,2016-08-27,26,8,26,8,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2016_0060,J1,2016,新潟,吉田 達磨,片渕 浩一郎,,2016-09-25,2016-10-01,2016-10-01,2016-10-01,30,4,30,4,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2017_0062,J1,2017,FC東京,篠田 善之,安間 貴義,,2017-09-09,2017-09-16,2017-09-16,2017-09-16,25,9,25,9,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2017_0063,J1,2017,大宮,渋谷 洋樹,伊藤 彰,,2017-05-27,2017-06-04,2017-06-04,2017-06-04,13,21,13,18,34,石井 正忠,2017-11-18,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2017_0064,J1,2017,大宮,伊藤 彰,石井 正忠,,2017-10-29,2017-11-18,2017-11-18,2017-11-18,31,3,18,3,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2017_0065,J1,2017,広島,森保 一,ヤン アンデシュ ヨンソン,横内 昭展,2017-07-01,2017-07-08,2017-07-08,2017-07-30,17,17,17,17,34,,,bridge_to_stable_manager,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2017_0066,J1,2017,新潟,三浦 文丈,呂比須 ワグナー,片渕 浩一郎,2017-05-05,2017-05-14,2017-05-14,2017-05-20,10,24,10,24,34,,,bridge_to_stable_manager,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2017_0067,J1,2017,浦和,ミハイロ ペトロビッチ,堀 孝史,,2017-07-29,2017-08-05,2017-08-05,2017-08-05,20,14,20,14,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2017_0068,J1,2017,神戸,ネルシーニョ,吉田 孝行,,2017-08-13,2017-08-20,2017-08-20,2017-08-20,22,12,22,12,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2017_0069,J1,2017,鹿島,石井 正忠,大岩 剛,,2017-05-19,2017-06-04,2017-06-04,2017-06-04,12,22,12,22,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2018_0070,J1,2018,G大阪,レビー クルピ,宮本 恒靖,,2018-07-22,2018-07-28,2018-07-28,2018-07-28,17,17,17,17,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2018_0071,J1,2018,柏,下平 隆宏,加藤 望,,2018-05-12,2018-05-20,2018-05-20,2018-05-20,14,20,14,18,34,岩瀬 健,2018-11-24,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2018_0072,J1,2018,柏,加藤 望,岩瀬 健,,2018-11-06,2018-11-24,2018-11-24,2018-11-24,32,2,18,2,34,,,late_short_caretaker_to_season_end,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2018_0073,J1,2018,浦和,堀 孝史,大槻 毅,,2018-04-01,2018-04-07,2018-04-07,2018-04-07,5,29,5,4,34,オズワルド オリベイラ,2018-04-25,direct_change,1,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2018_0074,J1,2018,浦和,大槻 毅,オズワルド オリベイラ,,2018-04-21,2018-04-25,2018-04-25,2018-04-25,9,25,4,25,34,,,direct_change,1,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2018_0075,J1,2018,神戸,吉田 孝行,フアン マヌエル リージョ,林 健太郎,2018-09-15,2018-09-23,2018-09-23,2018-10-06,26,8,26,8,34,,,bridge_to_stable_manager,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2018_0077,J1,2018,鳥栖,マッシモ フィッカデンティ,キン ミョンヒ,,2018-10-06,2018-10-20,2018-10-20,2018-10-20,29,5,28,5,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2019_0078,J1,2019,名古屋,風間 八宏,マッシモ フィッカデンティ,,2019-09-13,2019-09-28,2019-09-28,2019-09-28,26,8,26,8,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2019_0079,J1,2019,浦和,オズワルド オリベイラ,大槻 毅,,2019-05-26,2019-06-01,2019-06-01,2019-06-01,13,21,13,21,34,,,direct_change,1,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2019_0080,J1,2019,清水,ヤン アンデシュ ヨンソン,篠田 善之,,2019-05-12,2019-05-18,2019-05-18,2019-05-18,11,23,11,23,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2019_0081,J1,2019,湘南,チョウ キジェ,高橋 健二,,2019-08-11,2019-08-17,2019-08-17,2019-08-17,22,12,22,6,34,浮嶋 敏,2019-10-19,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2019_0082,J1,2019,湘南,高橋 健二,浮嶋 敏,,2019-10-06,2019-10-19,2019-10-19,2019-10-19,28,6,6,6,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2019_0083,J1,2019,磐田,名波 浩,鈴木 秀人,,2019-06-30,2019-07-06,2019-07-06,2019-07-06,17,17,17,5,34,小林 稔,2019-08-18,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2019_0084,J1,2019,磐田,鈴木 秀人,フェルナンド フベロ,小林 稔,2019-08-11,2019-08-18,2019-08-18,2019-08-24,22,12,5,12,34,,,bridge_to_stable_manager,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2019_0085,J1,2019,神戸,フアン マヌエル リージョ,吉田 孝行,,2019-04-14,2019-04-20,2019-04-20,2019-04-20,7,27,7,7,34,トルステン フィンク,2019-06-15,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2019_0086,J1,2019,神戸,吉田 孝行,トルステン フィンク,,2019-06-01,2019-06-15,2019-06-15,2019-06-15,14,20,7,20,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2019_0087,J1,2019,鳥栖,ルイス カレーラス,キン ミョンヒ,,2019-04-28,2019-05-04,2019-05-04,2019-05-04,9,25,9,25,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2020_0088,J1,2020,広島,城福 浩,沢田 謙太郎,,2020-12-16,2020-12-19,2020-12-19,2020-12-19,33,1,33,1,34,,,late_short_caretaker_to_season_end,1,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2020_0089,J1,2020,清水,ピーター クラモフスキー,平岡 宏章,,2020-10-31,2020-11-03,2020-11-03,2020-11-03,25,9,25,9,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2020_0090,J1,2020,神戸,トルステン フィンク,三浦 淳寛,マルコス ビベス,2020-09-19,2020-09-23,2020-09-23,2020-09-26,19,15,19,15,34,,,bridge_to_stable_manager,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2021_0091,J1,2021,C大阪,レビー クルピ,小菊 昭雄,,2021-08-25,2021-08-28,2021-08-28,2021-08-28,25,13,25,13,38,,,direct_change,1,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2021_0092,J1,2021,FC東京,長谷川 健太,森下 申一,,2021-11-06,2021-11-20,2021-11-20,2021-11-20,35,3,35,3,38,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2021_0093,J1,2021,G大阪,宮本 恒靖,松波 正信,,2021-05-12,2021-05-16,2021-05-16,2021-05-16,10,28,10,28,38,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2021_0094,J1,2021,仙台,手倉森 誠,原崎 政人,,2021-11-20,2021-11-27,2021-11-27,2021-11-27,36,2,36,2,38,,,late_short_caretaker_to_season_end,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2021_0095,J1,2021,名古屋,マッシモ フィッカデンティ,ブルーノ コンカ,,2021-04-22,2021-04-29,2021-04-29,2021-04-29,12,26,12,4,38,マッシモ フィッカデンティ,2021-05-15,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2021_0096,J1,2021,名古屋,ブルーノ コンカ,マッシモ フィッカデンティ,,2021-05-12,2021-05-15,2021-05-15,2021-05-15,16,22,4,22,38,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2021_0097,J1,2021,広島,城福 浩,沢田 謙太郎,,2021-10-23,2021-11-03,2021-11-03,2021-11-03,33,5,33,5,38,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2021_0098,J1,2021,徳島,甲本 偉嗣,ダニエル ポヤトス,,2021-04-14,2021-04-17,2021-04-17,2021-04-17,10,28,10,28,38,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2021_0099,J1,2021,横浜FC,下平 隆宏,早川 知伸,,2021-04-07,2021-04-11,2021-04-11,2021-04-11,8,30,8,30,38,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2021_0100,J1,2021,横浜FM,アンジェ ポステコグルー,松永 英機,,2021-05-30,2021-06-23,2021-06-23,2021-06-23,16,22,16,4,38,ケビン マスカット,2021-08-06,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2021_0101,J1,2021,横浜FM,松永 英機,ケビン マスカット,,2021-07-10,2021-08-06,2021-08-06,2021-08-06,20,18,4,18,38,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2021_0102,J1,2021,清水,ミゲル アンヘル ロティーナ,平岡 宏章,,2021-11-03,2021-11-06,2021-11-06,2021-11-06,34,4,34,4,38,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2021_0103,J1,2021,湘南,浮嶋 敏,山口 智,,2021-08-29,2021-09-11,2021-09-11,2021-09-11,27,11,27,11,38,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2021_0104,J1,2021,鳥栖,キン ミョンヒ,片渕 浩一郎,,2021-07-03,2021-07-17,2021-07-17,2021-07-17,20,18,20,3,38,キン ミョンヒ,2021-08-14,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2021_0105,J1,2021,鳥栖,片渕 浩一郎,キン ミョンヒ,,2021-08-09,2021-08-14,2021-08-14,2021-08-14,23,15,3,15,38,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2021_0106,J1,2021,鹿島,ザーゴ,相馬 直樹,,2021-04-11,2021-04-17,2021-04-17,2021-04-17,8,30,8,30,38,,,direct_change,1,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2022_0107,J1,2022,G大阪,片野坂 知宏,松田 浩,,2022-08-14,2022-08-20,2022-08-20,2022-08-20,24,10,24,10,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2022_0109,J1,2022,清水,平岡 宏章,ゼ リカルド,,2022-05-29,2022-06-18,2022-06-18,2022-06-18,16,18,16,18,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2022_0110,J1,2022,磐田,伊藤 彰,渋谷 洋樹,,2022-08-13,2022-08-19,2022-08-19,2022-08-19,25,9,25,9,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2022_0111,J1,2022,神戸,三浦 淳寛,ミゲル アンヘル ロティーナ,リュイス プラナグマ,2022-03-19,2022-04-02,2022-04-02,2022-04-10,7,27,7,11,34,吉田 孝行,2022-07-02,bridge_to_stable_manager,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2022_0112,J1,2022,神戸,ミゲル アンヘル ロティーナ,吉田 孝行,,2022-06-26,2022-07-02,2022-07-02,2022-07-02,18,16,9,16,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2022_0114,J1,2022,鹿島,レネ ヴァイラー,岩政 大樹,,2022-08-06,2022-08-14,2022-08-14,2022-08-14,24,10,20,10,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2023_0115,J1,2023,FC東京,アルベルト プッチ オルトネダ,ピーター クラモフスキー,,2023-06-11,2023-06-24,2023-06-24,2023-06-24,17,17,17,17,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2023_0116,J1,2023,柏,ネルシーニョ,井原 正巳,,2023-05-13,2023-05-20,2023-05-20,2023-05-20,13,21,13,21,34,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2024_0117,J1,2024,横浜FM,ハリー キューウェル,ジョン ハッチンソン,,2024-07-14,2024-07-20,2024-07-20,2024-07-20,23,15,23,15,38,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2024_0118,J1,2024,浦和,ペアマティアス ヘグモ,マチェイ スコルジャ,池田 伸康,2024-08-17,2024-08-31,2024-08-31,2024-09-14,26,12,26,12,38,,,bridge_to_stable_manager,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2024_0119,J1,2024,鳥栖,川井 健太,木谷 公亮,,2024-08-07,2024-08-11,2024-08-11,2024-08-11,25,13,25,13,38,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2024_0120,J1,2024,鹿島,ランコ ポポビッチ,中後 雅喜,,2024-10-05,2024-10-19,2024-10-19,2024-10-19,32,6,32,6,38,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2025_0121,J1,2025,新潟,樹森 大介,入江 徹,,2025-06-21,2025-06-25,2025-06-25,2025-06-25,20,18,20,18,38,,,direct_change,1,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2025_0122,J1,2025,横浜FC,四方田 修平,三浦 文丈,,2025-07-20,2025-08-09,2025-08-09,2025-08-09,24,14,24,14,38,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2025_0123,J1,2025,横浜FM,スティーブ ホーランド,パトリック キスノーボ,,2025-04-16,2025-04-20,2025-04-20,2025-04-20,11,27,11,8,38,大島 秀夫,2025-06-21,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record
+J1C_2025_0124,J1,2025,横浜FM,パトリック キスノーボ,大島 秀夫,,2025-06-15,2025-06-21,2025-06-21,2025-06-21,19,19,8,19,38,,,direct_change,0,True,soccer-db_inferred_collapsed_from_match_record

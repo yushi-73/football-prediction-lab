@@ -1,0 +1,2 @@
+﻿competition,season,match_id,match_url,error
+J1,2007,20070812001,https://soccer-db.net/result/20070812001,"ConnectionError(ProtocolError('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')))"

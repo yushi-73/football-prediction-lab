@@ -1,2 +1,0 @@
-﻿input_csv,outdir,target_division,years,n_sims,seed,decay,prev_decay,prev_weight,goal_cap_for_strength,lambda_cap,prior_division_mode,strength_low,strength_high,split_mode
-j1_j2_elo_input_1993_2025.csv,no_elo_halfseason_poisson_outputs,J1,"2023,2024,2025",10000,42,1.0,0.995,0.2,4.0,3.5,all,0.35,2.5,chronological_half

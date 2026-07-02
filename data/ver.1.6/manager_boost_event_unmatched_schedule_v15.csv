@@ -1,0 +1,12 @@
+﻿event_id,season,team,old_manager,new_manager,last_old_manager_match_date,first_new_manager_match_date,effective_change_date,games_after_change,date,opponent,is_home_schedule,match_id,match_url,merge_date,target_year,date_v15,is_home,home,away,actual_goals_for,actual_goals_against,lambda_for,lambda_against,team_win_prob,team_draw_prob,team_loss_prob,expected_points,actual_points,points_residual,goal_for_residual,goals_against_improvement,actual_home_goal,actual_away_goal,lambda_home,lambda_away
+E002,2023,柏,ネルシーニョ,井原 正巳,2023-05-13,2023-05-20,2023-05-20,1,2023-05-20,神戸,True,20230520005,https://soccer-db.net/result/20230520005,2023-05-20,,,,,,,,,,,,,,,,,,,,,
+E002,2023,柏,ネルシーニョ,井原 正巳,2023-05-13,2023-05-20,2023-05-20,2,2023-05-28,川崎F,False,20230528004,https://soccer-db.net/result/20230528004,2023-05-28,,,,,,,,,,,,,,,,,,,,,
+E002,2023,柏,ネルシーニョ,井原 正巳,2023-05-13,2023-05-20,2023-05-20,3,2023-06-03,札幌,True,20230603006,https://soccer-db.net/result/20230603006,2023-06-03,,,,,,,,,,,,,,,,,,,,,
+E002,2023,柏,ネルシーニョ,井原 正巳,2023-05-13,2023-05-20,2023-05-20,4,2023-06-10,横浜FM,False,20230610001,https://soccer-db.net/result/20230610001,2023-06-10,,,,,,,,,,,,,,,,,,,,,
+E009,2025,横浜FM,スティーブ ホーランド,パトリック キスノーボ,2025-04-16,2025-04-20,2025-04-20,1,2025-04-20,浦和,False,20250420009,https://soccer-db.net/result/20250420009,2025-04-20,,,,,,,,,,,,,,,,,,,,,
+E009,2025,横浜FM,スティーブ ホーランド,パトリック キスノーボ,2025-04-16,2025-04-20,2025-04-20,2,2025-05-11,C大阪,False,20250511007,https://soccer-db.net/result/20250511007,2025-05-11,,,,,,,,,,,,,,,,,,,,,
+E009,2025,横浜FM,スティーブ ホーランド,パトリック キスノーボ,2025-04-16,2025-04-20,2025-04-20,3,2025-05-14,柏,True,20250514002,https://soccer-db.net/result/20250514002,2025-05-14,,,,,,,,,,,,,,,,,,,,,
+E009,2025,横浜FM,スティーブ ホーランド,パトリック キスノーボ,2025-04-16,2025-04-20,2025-04-20,4,2025-05-17,京都,True,20250517003,https://soccer-db.net/result/20250517003,2025-05-17,,,,,,,,,,,,,,,,,,,,,
+E009,2025,横浜FM,スティーブ ホーランド,パトリック キスノーボ,2025-04-16,2025-04-20,2025-04-20,5,2025-05-21,神戸,True,20250521002,https://soccer-db.net/result/20250521002,2025-05-21,,,,,,,,,,,,,,,,,,,,,
+E009,2025,横浜FM,スティーブ ホーランド,パトリック キスノーボ,2025-04-16,2025-04-20,2025-04-20,6,2025-05-25,鹿島,True,20250525004,https://soccer-db.net/result/20250525004,2025-05-25,,,,,,,,,,,,,,,,,,,,,
+E009,2025,横浜FM,スティーブ ホーランド,パトリック キスノーボ,2025-04-16,2025-04-20,2025-04-20,7,2025-05-31,町田,False,20250531002,https://soccer-db.net/result/20250531002,2025-05-31,,,,,,,,,,,,,,,,,,,,,
