@@ -1,0 +1,253 @@
+events: C:\Users\yasya\Documents\GitHub\football-prediction-lab\data\ver.1.5+\manager_boost_pseudo_events_j1_2005_2025.csv
+historical: C:\Users\yasya\Documents\GitHub\football-prediction-lab\data\j1_historical_results_1993_2025_table_fixed.csv
+events: 116
+historical J1 matches: 9714
+event teams: ['C大阪', 'FC東京', 'G大阪', '京都', '仙台', '名古屋', '大分', '大宮', '山形', '川崎F', '広島', '徳島', '新潟', '札幌', '松本', '柏', '横浜FC', '横浜FM', '浦和', '清水', '湘南', '甲府', '磐田', '神戸', '福岡', '長崎', '鳥栖', '鹿島']
+PSEUDO_0001 2005 FC東京: cutoff=2005-04-28 effective=2005-05-01
+  対象試合数: 10
+PSEUDO_0002 2005 大宮: cutoff=2005-09-17 effective=2005-09-24
+  対象試合数: 10
+PSEUDO_0003 2005 柏: cutoff=2005-07-02 effective=2005-07-06
+  対象試合数: 10
+PSEUDO_0004 2005 横浜FM: cutoff=2005-08-27 effective=2005-09-03
+  対象試合数: 10
+PSEUDO_0005 2005 清水: cutoff=2005-08-24 effective=2005-08-28
+  対象試合数: 10
+PSEUDO_0006 2006 C大阪: cutoff=2006-08-19 effective=2006-08-23
+  対象試合数: 10
+PSEUDO_0007 2006 京都: cutoff=2006-03-26 effective=2006-04-02
+  対象試合数: 10
+PSEUDO_0008 2006 京都: cutoff=2006-07-29 effective=2006-08-12
+  対象試合数: 10
+PSEUDO_0009 2006 名古屋: cutoff=2006-07-22 effective=2006-07-26
+  対象試合数: 10
+PSEUDO_0010 2006 横浜FM: cutoff=2006-04-23 effective=2006-04-29
+  対象試合数: 10
+PSEUDO_0011 2006 清水: cutoff=2006-04-15 effective=2006-04-22
+  対象試合数: 10
+PSEUDO_0012 2006 甲府: cutoff=2006-05-03 effective=2006-05-06
+  対象試合数: 10
+PSEUDO_0013 2006 福岡: cutoff=2006-08-26 effective=2006-08-30
+  対象試合数: 10
+PSEUDO_0014 2006 鹿島: cutoff=2006-10-29 effective=2006-11-11
+  対象試合数: 5
+PSEUDO_0015 2007 名古屋: cutoff=2007-06-30 effective=2007-08-12
+  対象試合数: 10
+PSEUDO_0016 2007 神戸: cutoff=2007-06-30 effective=2007-08-11
+  対象試合数: 6
+PSEUDO_0017 2007 神戸: cutoff=2007-09-01 effective=2007-09-15
+  対象試合数: 10
+PSEUDO_0018 2008 大宮: cutoff=2008-07-21 effective=2008-07-27
+  対象試合数: 10
+PSEUDO_0019 2008 新潟: cutoff=2008-04-06 effective=2008-04-13
+  対象試合数: 10
+PSEUDO_0020 2008 磐田: cutoff=2008-07-05 effective=2008-07-12
+  対象試合数: 10
+PSEUDO_0021 2008 神戸: cutoff=2008-06-29 effective=2008-07-05
+  対象試合数: 10
+PSEUDO_0022 2009 FC東京: cutoff=2009-08-23 effective=2009-08-29
+  対象試合数: 10
+PSEUDO_0023 2009 名古屋: cutoff=2009-06-28 effective=2009-07-01
+  対象試合数: 10
+PSEUDO_0024 2009 大分: cutoff=2009-08-24 effective=2009-08-29
+  対象試合数: 10
+PSEUDO_0025 2009 横浜FM: cutoff=2009-07-26 effective=2009-08-01
+  対象試合数: 10
+PSEUDO_0026 2009 浦和: cutoff=2009-08-15 effective=2009-08-19
+  対象試合数: 10
+PSEUDO_0027 2010 FC東京: cutoff=2010-05-01 effective=2010-05-05
+  対象試合数: 10
+PSEUDO_0028 2010 京都: cutoff=2010-10-24 effective=2010-10-30
+  対象試合数: 7
+PSEUDO_0029 2010 新潟: cutoff=2010-04-03 effective=2010-04-10
+  対象試合数: 10
+PSEUDO_0030 2010 湘南: cutoff=2010-08-21 effective=2010-08-28
+  対象試合数: 10
+PSEUDO_0031 2010 鹿島: cutoff=2010-08-28 effective=2010-09-11
+  対象試合数: 10
+PSEUDO_0032 2011 大宮: cutoff=2011-08-24 effective=2011-08-27
+  対象試合数: 10
+PSEUDO_0033 2011 川崎F: cutoff=2011-08-06 effective=2011-08-14
+  対象試合数: 10
+PSEUDO_0034 2011 福岡: cutoff=2011-09-17 effective=2011-09-25
+  対象試合数: 8
+PSEUDO_0035 2011 鹿島: cutoff=2011-07-27 effective=2011-07-31
+  対象試合数: 10
+PSEUDO_0036 2012 C大阪: cutoff=2012-05-06 effective=2012-05-12
+  対象試合数: 10
+PSEUDO_0037 2012 FC東京: cutoff=2012-04-28 effective=2012-05-06
+  対象試合数: 10
+PSEUDO_0038 2012 G大阪: cutoff=2012-05-25 effective=2012-06-16
+  対象試合数: 10
+PSEUDO_0039 2012 川崎F: cutoff=2012-09-01 effective=2012-09-15
+  対象試合数: 10
+PSEUDO_0040 2012 新潟: cutoff=2012-04-07 effective=2012-04-14
+  対象試合数: 10
+PSEUDO_0041 2012 札幌: cutoff=2012-05-06 effective=2012-05-12
+  対象試合数: 10
+PSEUDO_0042 2012 札幌: cutoff=2012-09-15 effective=2012-09-22
+  対象試合数: 9
+PSEUDO_0043 2012 鳥栖: cutoff=2012-10-20 effective=2012-10-27
+  対象試合数: 5
+PSEUDO_0044 2013 甲府: cutoff=2013-07-06 effective=2013-07-10
+  対象試合数: 10
+PSEUDO_0045 2013 鳥栖: cutoff=2013-05-25 effective=2013-07-06
+  対象試合数: 7
+PSEUDO_0046 2013 鳥栖: cutoff=2013-08-10 effective=2013-08-17
+  対象試合数: 10
+PSEUDO_0047 2014 仙台: cutoff=2014-09-20 effective=2014-09-23
+  対象試合数: 10
+PSEUDO_0048 2014 名古屋: cutoff=2014-04-19 effective=2014-04-26
+  対象試合数: 10
+PSEUDO_0049 2014 大宮: cutoff=2014-07-27 effective=2014-08-02
+  対象試合数: 10
+PSEUDO_0050 2014 広島: cutoff=2014-07-19 effective=2014-07-23
+  対象試合数: 10
+PSEUDO_0051 2014 徳島: cutoff=2014-09-13 effective=2014-09-20
+  対象試合数: 10
+PSEUDO_0052 2014 新潟: cutoff=2014-07-27 effective=2014-08-02
+  対象試合数: 10
+PSEUDO_0053 2015 山形: cutoff=2015-06-20 effective=2015-06-27
+  対象試合数: 5
+PSEUDO_0054 2015 山形: cutoff=2015-07-25 effective=2015-07-29
+  対象試合数: 10
+PSEUDO_0055 2015 横浜FM: cutoff=2015-07-15 effective=2015-07-19
+  対象試合数: 10
+PSEUDO_0056 2016 名古屋: cutoff=2016-07-09 effective=2016-07-13
+  対象試合数: 10
+PSEUDO_0057 2016 湘南: cutoff=2016-08-27 effective=2016-09-10
+  対象試合数: 7
+PSEUDO_0058 2016 福岡: cutoff=2016-08-14 effective=2016-08-20
+  対象試合数: 9
+PSEUDO_0059 2017 新潟: cutoff=2017-08-09 effective=2017-08-13
+  対象試合数: 5
+PSEUDO_0060 2017 新潟: cutoff=2017-09-16 effective=2017-09-23
+  対象試合数: 8
+PSEUDO_0061 2017 札幌: cutoff=2017-06-04 effective=2017-06-17
+  対象試合数: 10
+PSEUDO_0062 2017 清水: cutoff=2017-08-27 effective=2017-09-09
+  対象試合数: 10
+PSEUDO_0063 2017 甲府: cutoff=2017-06-04 effective=2017-06-17
+  対象試合数: 10
+PSEUDO_0064 2017 甲府: cutoff=2017-09-09 effective=2017-09-16
+  対象試合数: 9
+PSEUDO_0065 2017 神戸: cutoff=2017-04-30 effective=2017-05-06
+  対象試合数: 8
+PSEUDO_0066 2017 神戸: cutoff=2017-07-01 effective=2017-07-08
+  対象試合数: 10
+PSEUDO_0067 2018 FC東京: cutoff=2018-09-02 effective=2018-09-15
+  対象試合数: 9
+PSEUDO_0068 2018 名古屋: cutoff=2018-05-02 effective=2018-05-05
+  対象試合数: 10
+PSEUDO_0069 2018 名古屋: cutoff=2018-10-28 effective=2018-11-03
+  対象試合数: 5
+PSEUDO_0070 2018 柏: cutoff=2018-07-22 effective=2018-07-28
+  対象試合数: 10
+PSEUDO_0071 2018 磐田: cutoff=2018-10-07 effective=2018-10-21
+  対象試合数: 6
+PSEUDO_0072 2018 長崎: cutoff=2018-03-31 effective=2018-04-08
+  対象試合数: 10
+PSEUDO_0073 2018 長崎: cutoff=2018-05-19 effective=2018-07-18
+  対象試合数: 10
+PSEUDO_0074 2019 G大阪: cutoff=2019-04-14 effective=2019-04-20
+  対象試合数: 10
+PSEUDO_0075 2019 名古屋: cutoff=2019-06-22 effective=2019-06-30
+  対象試合数: 10
+PSEUDO_0076 2019 大分: cutoff=2019-06-22 effective=2019-06-30
+  対象試合数: 10
+PSEUDO_0077 2019 広島: cutoff=2019-05-12 effective=2019-05-17
+  対象試合数: 10
+PSEUDO_0078 2019 松本: cutoff=2019-07-07 effective=2019-07-13
+  対象試合数: 5
+PSEUDO_0079 2019 松本: cutoff=2019-08-18 effective=2019-08-23
+  対象試合数: 10
+PSEUDO_0080 2019 浦和: cutoff=2019-08-23 effective=2019-09-01
+  対象試合数: 10
+PSEUDO_0081 2019 磐田: cutoff=2019-05-12 effective=2019-05-18
+  対象試合数: 10
+PSEUDO_0082 2019 磐田: cutoff=2019-10-05 effective=2019-10-19
+  対象試合数: 6
+PSEUDO_0083 2020 FC東京: cutoff=2020-10-28 effective=2020-10-31
+  対象試合数: 6
+PSEUDO_0084 2020 清水: cutoff=2020-09-23 effective=2020-09-26
+  対象試合数: 10
+PSEUDO_0085 2021 C大阪: cutoff=2021-10-03 effective=2021-10-24
+  対象試合数: 6
+PSEUDO_0086 2021 FC東京: cutoff=2021-05-01 effective=2021-05-09
+  対象試合数: 10
+PSEUDO_0087 2021 仙台: cutoff=2021-04-24 effective=2021-05-01
+  対象試合数: 10
+PSEUDO_0088 2021 仙台: cutoff=2021-08-29 effective=2021-09-12
+  対象試合数: 10
+PSEUDO_0089 2021 大分: cutoff=2021-04-07 effective=2021-04-11
+  対象試合数: 5
+PSEUDO_0090 2021 大分: cutoff=2021-05-09 effective=2021-05-15
+  対象試合数: 10
+PSEUDO_0091 2021 大分: cutoff=2021-08-09 effective=2021-08-15
+  対象試合数: 10
+PSEUDO_0092 2021 広島: cutoff=2021-08-25 effective=2021-08-28
+  対象試合数: 10
+PSEUDO_0093 2021 徳島: cutoff=2021-06-27 effective=2021-07-04
+  対象試合数: 7
+PSEUDO_0094 2021 徳島: cutoff=2021-08-29 effective=2021-09-10
+  対象試合数: 10
+PSEUDO_0095 2021 札幌: cutoff=2021-09-18 effective=2021-09-26
+  対象試合数: 9
+PSEUDO_0096 2021 柏: cutoff=2021-03-17 effective=2021-03-21
+  対象試合数: 10
+PSEUDO_0097 2021 柏: cutoff=2021-05-26 effective=2021-05-29
+  対象試合数: 10
+PSEUDO_0098 2021 横浜FC: cutoff=2021-09-18 effective=2021-09-25
+  対象試合数: 9
+PSEUDO_0099 2021 湘南: cutoff=2021-06-02 effective=2021-06-20
+  対象試合数: 10
+PSEUDO_0100 2021 福岡: cutoff=2021-04-14 effective=2021-04-17
+  対象試合数: 10
+PSEUDO_0101 2022 G大阪: cutoff=2022-06-26 effective=2022-06-29
+  対象試合数: 10
+PSEUDO_0102 2022 京都: cutoff=2022-05-21 effective=2022-05-25
+  対象試合数: 10
+PSEUDO_0103 2022 京都: cutoff=2022-08-06 effective=2022-08-27
+  対象試合数: 10
+PSEUDO_0104 2022 札幌: cutoff=2022-06-18 effective=2022-06-26
+  対象試合数: 10
+PSEUDO_0105 2022 清水: cutoff=2022-04-06 effective=2022-04-10
+  対象試合数: 10
+PSEUDO_0106 2022 福岡: cutoff=2022-08-26 effective=2022-08-31
+  対象試合数: 8
+PSEUDO_0107 2023 G大阪: cutoff=2023-05-06 effective=2023-05-14
+  対象試合数: 10
+PSEUDO_0108 2023 新潟: cutoff=2023-06-24 effective=2023-07-01
+  対象試合数: 10
+PSEUDO_0109 2024 C大阪: cutoff=2024-08-11 effective=2024-08-17
+  対象試合数: 10
+PSEUDO_0110 2024 新潟: cutoff=2024-10-05 effective=2024-10-18
+  対象試合数: 5
+PSEUDO_0111 2024 湘南: cutoff=2024-06-26 effective=2024-06-30
+  対象試合数: 10
+PSEUDO_0112 2024 福岡: cutoff=2024-08-10 effective=2024-08-17
+  対象試合数: 10
+PSEUDO_0113 2025 FC東京: cutoff=2025-06-22 effective=2025-06-25
+  対象試合数: 10
+PSEUDO_0114 2025 G大阪: cutoff=2025-06-15 effective=2025-06-22
+  対象試合数: 10
+PSEUDO_0115 2025 広島: cutoff=2025-04-29 effective=2025-05-03
+  対象試合数: 10
+PSEUDO_0116 2025 清水: cutoff=2025-07-05 effective=2025-07-20
+  対象試合数: 10
+
+=== 出力完了 ===
+manager_boost_pseudo_counterfactual_matches_v15.csv
+manager_boost_pseudo_counterfactual_summary_v15.csv
+manager_boost_pseudo_counterfactual_by_event_v15.csv
+manager_boost_pseudo_counterfactual_by_year_v15.csv
+manager_boost_pseudo_counterfactual_unmatched_v15.csv
+manager_boost_pseudo_counterfactual_summary_v15.html
+
+=== ウィンドウ別集計 ===
+    window  n_matches  n_events  mean_expected_points  mean_actual_points  mean_points_residual  mean_goal_for_residual  mean_goals_against_improvement
+ after_1_3        348       116                 1.145               1.236                 0.091                   0.145                          -0.024
+ after_1_5        580       116                 1.140               1.216                 0.076                   0.100                          -0.009
+after_1_10       1074       116                 1.143               1.250                 0.106                   0.100                           0.017
+ after_4_6        340       116                 1.117               1.244                 0.127                   0.067                           0.110
+after_7_10        386       103                 1.166               1.267                 0.101                   0.089                          -0.028

@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>監督交代ブースト検証の整理 | Football Prediction Lab</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    :root { --accent:#7c3aed; --ink:#1f2937; --muted:#6b7280; --bg:#f8fafc; --good:#ecfdf5; --warn:#fffbeb; --bad:#fef2f2; }
+    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height:1.8; color:var(--ink); background:#fff; margin:0; }
+    header { background:linear-gradient(135deg,#20124d,#4c1d95); color:#fff; padding:36px 24px; }
+    header h1 { margin:0 0 8px; font-size:30px; }
+    header p { margin:0; opacity:.9; }
+    main { max-width:1100px; margin:0 auto; padding:28px 20px 60px; }
+    section { margin:28px 0 38px; }
+    h2 { border-left:6px solid var(--accent); padding-left:12px; margin-top:36px; }
+    h3 { margin-top:24px; }
+    .lead { font-size:18px; background:var(--bg); border-left:6px solid var(--accent); padding:18px 20px; border-radius:12px; }
+    .cards { display:grid; grid-template-columns: repeat(auto-fit,minmax(230px,1fr)); gap:14px; margin:18px 0; }
+    .card { border:1px solid #e5e7eb; border-radius:14px; padding:16px; background:#fff; box-shadow:0 1px 2px rgba(0,0,0,.04); }
+    .card.good { background:var(--good); } .card.warn{ background:var(--warn);} .card.bad{background:var(--bad);} 
+    .card .label { color:var(--muted); font-size:13px; }
+    .card .value { font-size:24px; font-weight:700; margin:4px 0; }
+    .table-wrap { overflow-x:auto; margin:14px 0 22px; }
+    .result-table { width:100%; border-collapse:collapse; font-size:13px; background:#fff; }
+    .result-table th, .result-table td { border:1px solid #ddd; padding:8px 10px; text-align:center; white-space:nowrap; }
+    .result-table th { background:#222; color:#fff; }
+    .result-table tbody tr:nth-child(even) { background:#f5f5f5; }
+    .note { background:#f8fafc; border:1px solid #e5e7eb; border-left:5px solid #7c3aed; border-radius:10px; padding:14px 16px; }
+    .decision { font-size:18px; font-weight:700; padding:16px 18px; border-radius:12px; background:#fef2f2; border:1px solid #fecaca; }
+    code { background:#f3f4f6; padding:2px 5px; border-radius:5px; }
+    .site-nav { margin-top:36px; display:flex; flex-wrap:wrap; gap:10px; }
+    .site-nav a { padding:8px 12px; border:1px solid #ddd; border-radius:8px; text-decoration:none; color:#333; }
+  </style>
+
+</head>
+<body>
+  <header>
+    <h1>監督交代ブースト検証の整理</h1>
+    <p>J1 2005〜2025年の監督交代118件を対象に、交代後の上振れが本当に監督交代由来かを検証</p>
+  </header>
+  <main>
+    <section>
+      <h2>結論</h2>
+      <p class="lead">
+        監督交代後に成績が上振れする事例はあるが、全体に一律で適用できる「監督交代ブースト」は確認できなかった。
+        低迷チームは監督交代をしなくても平均回帰で一定程度回復するため、単純な交代後の勝点増だけをブーストとは呼べない。
+      </p>
+      <div class="cards">
+        <div class="card bad"><div class="label">一律ブースト</div><div class="value">不採用</div><p>疑似イベントと比べて明確な優位がない。</p></div>
+        <div class="card warn"><div class="label">条件付き効果</div><div class="value">保留</div><p>中盤交代・短期限定では上振れの可能性が残る。</p></div>
+        <div class="card good"><div class="label">実用的な成果</div><div class="value">危険条件の把握</div><p>終盤交代・クラブ混乱型・基礎戦力不足は下振れしやすい。</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>検証の考え方</h2>
+      <p>
+        監督交代の効果を見るため、前任監督の最終戦までを学習範囲とし、その時点のチーム力が続いた場合の期待勝点を計算した。
+        その後、新監督初戦以降の実勝点と比較し、<strong>実勝点 − 期待勝点</strong>を勝点残差として扱った。
+      </p>
+      <p>
+        さらに、直近5試合で低迷していたが監督交代はしていないチームを疑似イベントとして作成し、
+        <strong>監督交代イベントが、通常の低迷チームの自然回復を上回ったか</strong>を確認した。
+      </p>
+      <div class="note">
+        本ページでの「アップリフト」は、原則として<br>
+        <code>監督交代イベントの勝点残差 − 同時期の疑似イベント平均</code><br>
+        を意味する。つまり、平均回帰を差し引いた上振れ量である。
+      </div>
+    </section>
+
+    <section>
+      <h2>1. 監督交代イベントだけを見ると、わずかな上振れはある</h2>
+      <p>
+        J1 2005〜2025年の118件を対象にすると、交代後1〜3試合で平均+0.077勝点/試合、
+        交代後1〜5試合で平均+0.086勝点/試合の上振れが見られた。
+        ただし信頼区間は0をまたいでおり、単独では強い効果とは言いにくい。
+      </p>
+      <div class="table-wrap"><table class="result-table"><thead><tr>
+<th>期間</th>
+<th>イベント数</th>
+<th>試合数</th>
+<th>期待勝点/試合</th>
+<th>実勝点/試合</th>
+<th>勝点残差/試合</th>
+<th>95%CI</th>
+<th>得点残差</th>
+<th>失点改善</th>
+</tr></thead><tbody>
+<tr>
+<td>交代後1〜3試合</td>
+<td>118</td>
+<td>346</td>
+<td>1.183</td>
+<td>1.260</td>
+<td>0.077</td>
+<td>-0.065〜0.218</td>
+<td>0.071</td>
+<td>-0.041</td>
+</tr>
+<tr>
+<td>交代後1〜5試合</td>
+<td>118</td>
+<td>556</td>
+<td>1.175</td>
+<td>1.261</td>
+<td>0.086</td>
+<td>-0.024〜0.196</td>
+<td>0.081</td>
+<td>-0.001</td>
+</tr>
+<tr>
+<td>交代後1〜10試合</td>
+<td>118</td>
+<td>1004</td>
+<td>1.169</td>
+<td>1.208</td>
+<td>0.039</td>
+<td>-0.043〜0.121</td>
+<td>0.056</td>
+<td>0.044</td>
+</tr>
+<tr>
+<td>交代後7〜10試合</td>
+<td>92</td>
+<td>352</td>
+<td>1.155</td>
+<td>1.148</td>
+<td>-0.008</td>
+<td>-0.146〜0.131</td>
+<td>-0.001</td>
+<td>0.125</td>
+</tr>
+</tbody></table></div>
+    </section>
+
+    <section>
+      <h2>2. 疑似イベントと比べると、一律ブーストは弱い</h2>
+      <p>
+        低迷後の自然回復を比較対象にすると、交代後1〜3試合では監督交代組が疑似イベントを下回った。
+        交代後1〜5試合のみ、監督交代組がわずかに上回ったが、差は+0.026勝点と非常に小さい。
+      </p>
+      <div class="table-wrap"><table class="result-table"><thead><tr>
+<th>期間</th>
+<th>本物交代の残差</th>
+<th>疑似イベント残差</th>
+<th>本物−疑似</th>
+<th>本物上振れ率</th>
+<th>疑似上振れ率</th>
+<th>上振れ率差</th>
+</tr></thead><tbody>
+<tr>
+<td>交代後1〜3試合</td>
+<td>0.225</td>
+<td>0.273</td>
+<td>-0.048</td>
+<td>48.3%</td>
+<td>51.7%</td>
+<td>-3.4pt</td>
+</tr>
+<tr>
+<td>交代後1〜5試合</td>
+<td>0.403</td>
+<td>0.378</td>
+<td>0.026</td>
+<td>50.8%</td>
+<td>49.1%</td>
+<td>+1.7pt</td>
+</tr>
+<tr>
+<td>交代後1〜10試合</td>
+<td>0.335</td>
+<td>0.982</td>
+<td>-0.647</td>
+<td>50.8%</td>
+<td>59.5%</td>
+<td>-8.6pt</td>
+</tr>
+<tr>
+<td>交代後4〜6試合</td>
+<td>0.144</td>
+<td>0.373</td>
+<td>-0.229</td>
+<td>50.5%</td>
+<td>54.3%</td>
+<td>-3.9pt</td>
+</tr>
+<tr>
+<td>交代後7〜10試合</td>
+<td>-0.029</td>
+<td>0.378</td>
+<td>-0.408</td>
+<td>50.0%</td>
+<td>50.5%</td>
+<td>-0.5pt</td>
+</tr>
+</tbody></table></div>
+      <p class="decision">
+        評価：一律の監督交代ブーストは採用しない。監督交代後の上振れの多くは、平均回帰や日程要因でも説明できる。
+      </p>
+    </section>
+
+    <section>
+      <h2>3. 交代時期では「中盤交代」だけ可能性が残る</h2>
+      <p>
+        交代時期で分けると、17〜24試合消化時点の交代だけは、交代後1〜5試合で疑似イベントを明確に上回った。
+        一方、開幕直後や終盤の交代は疑似イベントを下回りやすい。
+      </p>
+      <div class="table-wrap"><table class="result-table"><thead><tr>
+<th>交代時期</th>
+<th>本物交代 1〜5試合</th>
+<th>疑似イベント 1〜5試合</th>
+<th>本物−疑似</th>
+</tr></thead><tbody>
+<tr>
+<td>0〜8試合</td>
+<td>0.746</td>
+<td>1.330</td>
+<td>-0.584</td>
+</tr>
+<tr>
+<td>9〜16試合</td>
+<td>0.098</td>
+<td>0.291</td>
+<td>-0.193</td>
+</tr>
+<tr>
+<td>17〜24試合</td>
+<td>0.712</td>
+<td>0.155</td>
+<td>0.556</td>
+</tr>
+<tr>
+<td>25試合以降</td>
+<td>0.073</td>
+<td>0.407</td>
+<td>-0.334</td>
+</tr>
+</tbody></table></div>
+      <div class="note">
+        中盤交代は「残り試合が十分にあり、かつチーム状態の悪化も見えている」タイミングであるため、短期的な反発が出やすい可能性がある。
+        ただし、交代後1〜10試合まで伸ばすと疑似イベントが上回るため、長期効果ではなく短期反発として見るべきである。
+      </div>
+    </section>
+
+    <section>
+      <h2>4. 後任監督タイプ別の評価</h2>
+      <p>
+        後任監督タイプでは、内部昇格・復帰型は平均アップリフトがややプラスだった。
+        ただし上振れ率は突出しておらず、「内部昇格なら必ず効く」とは言えない。
+      </p>
+      <div class="table-wrap"><table class="result-table"><thead><tr>
+<th>新監督タイプ</th>
+<th>件数</th>
+<th>平均アップリフト</th>
+<th>上振れ率</th>
+<th>強上振れ率</th>
+<th>強下振れ率</th>
+</tr></thead><tbody>
+<tr>
+<td>内部昇格・クラブ内人事</td>
+<td>47</td>
+<td>0.365</td>
+<td>44.7%</td>
+<td>38.3%</td>
+<td>38.3%</td>
+</tr>
+<tr>
+<td>復帰監督</td>
+<td>14</td>
+<td>0.344</td>
+<td>42.9%</td>
+<td>28.6%</td>
+<td>35.7%</td>
+</tr>
+<tr>
+<td>外部招聘</td>
+<td>33</td>
+<td>-0.211</td>
+<td>54.5%</td>
+<td>30.3%</td>
+<td>36.4%</td>
+</tr>
+<tr>
+<td>暫定・代行</td>
+<td>12</td>
+<td>-0.397</td>
+<td>41.7%</td>
+<td>41.7%</td>
+<td>58.3%</td>
+</tr>
+</tbody></table></div>
+    </section>
+
+    <section>
+      <h2>5. 交代前状態別の評価</h2>
+      <p>
+        最も良かったのは「攻守両方悪い」ケースだった。これは、単に戦力が足りないというより、チーム全体の機能不全が監督交代で一時的に解けるケースを拾っている可能性がある。
+        一方、基礎戦力不足や守備崩壊型単独は期待しにくい。
+      </p>
+      <div class="table-wrap"><table class="result-table"><thead><tr>
+<th>交代前状態</th>
+<th>件数</th>
+<th>平均アップリフト</th>
+<th>上振れ率</th>
+<th>強上振れ率</th>
+<th>強下振れ率</th>
+</tr></thead><tbody>
+<tr>
+<td>攻守両方悪い</td>
+<td>28</td>
+<td>0.734</td>
+<td>60.7%</td>
+<td>35.7%</td>
+<td>25.0%</td>
+</tr>
+<tr>
+<td>混合・不明</td>
+<td>18</td>
+<td>0.223</td>
+<td>50.0%</td>
+<td>44.4%</td>
+<td>44.4%</td>
+</tr>
+<tr>
+<td>攻撃停滞型</td>
+<td>23</td>
+<td>-0.007</td>
+<td>39.1%</td>
+<td>26.1%</td>
+<td>47.8%</td>
+</tr>
+<tr>
+<td>守備崩壊型</td>
+<td>31</td>
+<td>-0.279</td>
+<td>45.2%</td>
+<td>38.7%</td>
+<td>41.9%</td>
+</tr>
+<tr>
+<td>基礎戦力不足</td>
+<td>5</td>
+<td>-0.569</td>
+<td>20.0%</td>
+<td>20.0%</td>
+<td>40.0%</td>
+</tr>
+<tr>
+<td>不調・平均回帰疑い</td>
+<td>1</td>
+<td>-2.686</td>
+<td>0.0%</td>
+<td>0.0%</td>
+<td>100.0%</td>
+</tr>
+</tbody></table></div>
+    </section>
+
+    <section>
+      <h2>6. 交代理由・クラブ状況別の評価</h2>
+      <p>
+        クラブ混乱型はかなり悪い。複数回交代、一時代行の乱発、体制不安定などは、監督交代ブーストではなく下振れ要因として扱うべきである。
+      </p>
+      <div class="table-wrap"><table class="result-table"><thead><tr>
+<th>理由カテゴリ</th>
+<th>件数</th>
+<th>平均アップリフト</th>
+<th>上振れ率</th>
+<th>強上振れ率</th>
+<th>強下振れ率</th>
+</tr></thead><tbody>
+<tr>
+<td>上位・タイトル圧力</td>
+<td>4</td>
+<td>4.110</td>
+<td>75.0%</td>
+<td>75.0%</td>
+<td>25.0%</td>
+</tr>
+<tr>
+<td>予定された移行</td>
+<td>2</td>
+<td>2.936</td>
+<td>100.0%</td>
+<td>100.0%</td>
+<td>0.0%</td>
+</tr>
+<tr>
+<td>残留争い</td>
+<td>56</td>
+<td>0.338</td>
+<td>48.2%</td>
+<td>35.7%</td>
+<td>35.7%</td>
+</tr>
+<tr>
+<td>成績不振</td>
+<td>30</td>
+<td>-0.025</td>
+<td>50.0%</td>
+<td>33.3%</td>
+<td>40.0%</td>
+</tr>
+<tr>
+<td>クラブ混乱型</td>
+<td>13</td>
+<td>-1.951</td>
+<td>23.1%</td>
+<td>15.4%</td>
+<td>61.5%</td>
+</tr>
+<tr>
+<td>戦術不一致</td>
+<td>1</td>
+<td>-4.860</td>
+<td>0.0%</td>
+<td>0.0%</td>
+<td>100.0%</td>
+</tr>
+</tbody></table></div>
+    </section>
+
+    <section>
+      <h2>7. 上振れ・下振れの代表例</h2>
+      <h3>平均回帰を差し引いても上振れが大きかった例</h3>
+      <div class="table-wrap"><table class="result-table"><thead><tr>
+<th>年</th>
+<th>チーム</th>
+<th>前任</th>
+<th>後任</th>
+<th>時期</th>
+<th>後任タイプ</th>
+<th>交代前状態</th>
+<th>平均回帰控除後</th>
+<th>生の勝点残差</th>
+</tr></thead><tbody>
+<tr>
+<td>2015</td>
+<td>甲府</td>
+<td>樋口 靖洋</td>
+<td>佐久間 悟</td>
+<td>9〜16試合</td>
+<td>復帰監督</td>
+<td>攻撃停滞型</td>
+<td>10.052</td>
+<td>10.344</td>
+</tr>
+<tr>
+<td>2015</td>
+<td>鹿島</td>
+<td>トニーニョ セレーゾ</td>
+<td>石井 正忠</td>
+<td>17〜24試合</td>
+<td>内部昇格・クラブ内人事</td>
+<td>混合・不明</td>
+<td>7.983</td>
+<td>8.138</td>
+</tr>
+<tr>
+<td>2021</td>
+<td>清水</td>
+<td>ミゲル アンヘル ロティーナ</td>
+<td>平岡 宏章</td>
+<td>25試合以降</td>
+<td>内部昇格・クラブ内人事</td>
+<td>攻守両方悪い</td>
+<td>6.336</td>
+<td>6.742</td>
+</tr>
+<tr>
+<td>2014</td>
+<td>大宮</td>
+<td>大熊 清</td>
+<td>渋谷 洋樹</td>
+<td>17〜24試合</td>
+<td>内部昇格・クラブ内人事</td>
+<td>攻守両方悪い</td>
+<td>6.246</td>
+<td>6.401</td>
+</tr>
+<tr>
+<td>2019</td>
+<td>清水</td>
+<td>ヤン アンデシュ ヨンソン</td>
+<td>篠田 善之</td>
+<td>9〜16試合</td>
+<td>内部昇格・クラブ内人事</td>
+<td>攻守両方悪い</td>
+<td>6.070</td>
+<td>6.361</td>
+</tr>
+<tr>
+<td>2020</td>
+<td>神戸</td>
+<td>トルステン フィンク</td>
+<td>三浦 淳寛</td>
+<td>17〜24試合</td>
+<td>内部昇格・クラブ内人事</td>
+<td>守備崩壊型</td>
+<td>5.824</td>
+<td>5.979</td>
+</tr>
+<tr>
+<td>2005</td>
+<td>大分</td>
+<td>ファンボ グァン</td>
+<td>ペリクレス シャムスカ</td>
+<td>17〜24試合</td>
+<td>外部招聘</td>
+<td>守備崩壊型</td>
+<td>5.638</td>
+<td>5.793</td>
+</tr>
+<tr>
+<td>2017</td>
+<td>鹿島</td>
+<td>石井 正忠</td>
+<td>大岩 剛</td>
+<td>9〜16試合</td>
+<td>内部昇格・クラブ内人事</td>
+<td>攻守両方悪い</td>
+<td>5.569</td>
+<td>5.860</td>
+</tr>
+</tbody></table></div>
+      <h3>平均回帰を差し引くと下振れが大きかった例</h3>
+      <div class="table-wrap"><table class="result-table"><thead><tr>
+<th>年</th>
+<th>チーム</th>
+<th>前任</th>
+<th>後任</th>
+<th>時期</th>
+<th>後任タイプ</th>
+<th>交代前状態</th>
+<th>平均回帰控除後</th>
+<th>生の勝点残差</th>
+</tr></thead><tbody>
+<tr>
+<td>2019</td>
+<td>神戸</td>
+<td>フアン マヌエル リージョ</td>
+<td>吉田 孝行</td>
+<td>0〜8試合</td>
+<td>復帰監督</td>
+<td>守備崩壊型</td>
+<td>-8.367</td>
+<td>-7.037</td>
+</tr>
+<tr>
+<td>2014</td>
+<td>鳥栖</td>
+<td>ユン ジョンファン</td>
+<td>吉田 恵</td>
+<td>17〜24試合</td>
+<td>内部昇格・クラブ内人事</td>
+<td>攻撃停滞型</td>
+<td>-5.391</td>
+<td>-5.235</td>
+</tr>
+<tr>
+<td>2025</td>
+<td>横浜FM</td>
+<td>スティーブ ホーランド</td>
+<td>パトリック キスノーボ</td>
+<td>9〜16試合</td>
+<td>暫定・代行</td>
+<td>守備崩壊型</td>
+<td>-5.226</td>
+<td>-4.935</td>
+</tr>
+<tr>
+<td>2013</td>
+<td>大宮</td>
+<td>ベルデニック</td>
+<td>小倉 勉</td>
+<td>17〜24試合</td>
+<td>内部昇格・クラブ内人事</td>
+<td>攻守両方悪い</td>
+<td>-4.980</td>
+<td>-4.825</td>
+</tr>
+<tr>
+<td>2014</td>
+<td>C大阪</td>
+<td>ランコ ポポビッチ</td>
+<td>マルコ ペッツァイオリ</td>
+<td>9〜16試合</td>
+<td>外部招聘</td>
+<td>混合・不明</td>
+<td>-4.860</td>
+<td>-4.569</td>
+</tr>
+<tr>
+<td>2006</td>
+<td>C大阪</td>
+<td>小林 伸二</td>
+<td>塚田 雄二</td>
+<td>0〜8試合</td>
+<td>復帰監督</td>
+<td>守備崩壊型</td>
+<td>-4.657</td>
+<td>-3.327</td>
+</tr>
+<tr>
+<td>2019</td>
+<td>湘南</td>
+<td>チョウ キジェ</td>
+<td>高橋 健二</td>
+<td>17〜24試合</td>
+<td>暫定・代行</td>
+<td>守備崩壊型</td>
+<td>-4.615</td>
+<td>-4.459</td>
+</tr>
+<tr>
+<td>2022</td>
+<td>神戸</td>
+<td>三浦 淳寛</td>
+<td>ミゲル アンヘル ロティーナ</td>
+<td>0〜8試合</td>
+<td>外部招聘</td>
+<td>攻撃停滞型</td>
+<td>-4.514</td>
+<td>-3.184</td>
+</tr>
+</tbody></table></div>
+    </section>
+
+    <section>
+      <h2>8. ルールスコアと機械学習モデルの評価</h2>
+      <p>
+        ルールスコアは「上振れしそうな交代を高精度に当てる」よりも、<strong>明らかに危ない交代を避ける</strong>用途に向いている。
+        特にvery_lowは平均アップリフトが大きくマイナスで、強上振れ率も0%だった。
+      </p>
+      <div class="table-wrap"><table class="result-table"><thead><tr>
+<th>ルール判定</th>
+<th>件数</th>
+<th>平均アップリフト</th>
+<th>中央値</th>
+<th>上振れ率</th>
+<th>強上振れ率</th>
+<th>強下振れ率</th>
+</tr></thead><tbody>
+<tr>
+<td>medium</td>
+<td>34</td>
+<td>0.712</td>
+<td>0.498</td>
+<td>55.9%</td>
+<td>47.1%</td>
+<td>35.3%</td>
+</tr>
+<tr>
+<td>low</td>
+<td>26</td>
+<td>0.401</td>
+<td>0.176</td>
+<td>50.0%</td>
+<td>34.6%</td>
+<td>30.8%</td>
+</tr>
+<tr>
+<td>high</td>
+<td>31</td>
+<td>0.259</td>
+<td>-0.416</td>
+<td>45.2%</td>
+<td>38.7%</td>
+<td>41.9%</td>
+</tr>
+<tr>
+<td>very_low</td>
+<td>15</td>
+<td>-2.162</td>
+<td>-2.474</td>
+<td>26.7%</td>
+<td>0.0%</td>
+<td>60.0%</td>
+</tr>
+</tbody></table></div>
+      <p>
+        参考としてDecision TreeとRandom Forestも試したが、現時点の118件では精度はほぼランダムに近い。
+        そのため、現段階では機械学習モデル化よりも、検証結果の解釈と条件整理を優先する。
+      </p>
+      <div class="table-wrap"><table class="result-table"><thead><tr>
+<th>モデル</th>
+<th>件数</th>
+<th>陽性率</th>
+<th>Accuracy</th>
+<th>Balanced Acc.</th>
+<th>ROC-AUC</th>
+</tr></thead><tbody>
+<tr>
+<td>decision_tree_classifier_cv</td>
+<td>106</td>
+<td>47.2%</td>
+<td>0.500</td>
+<td>0.494</td>
+<td>0.501</td>
+</tr>
+<tr>
+<td>random_forest_classifier_cv_reference</td>
+<td>106</td>
+<td>47.2%</td>
+<td>0.481</td>
+<td>0.480</td>
+<td>0.464</td>
+</tr>
+</tbody></table></div>
+    </section>
+
+    <section>
+      <h2>最終判断</h2>
+      <ul>
+        <li><strong>一律の監督交代ブーストは不採用。</strong></li>
+        <li><strong>中盤交代・交代後1〜5試合限定</strong>では、短期反発の可能性がある。</li>
+        <li><strong>攻守両方悪いが、基礎戦力不足ではないチーム</strong>は上振れ候補。</li>
+        <li><strong>終盤交代、クラブ混乱型、基礎戦力不足</strong>は下振れリスクが高い。</li>
+        <li>モデル化は今後の課題とし、現段階では「条件付きの解釈」として開発ログに残す。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>関連ファイル</h2>
+      <ul>
+        <li><a href="data/ver.1.5+/manager_boost_counterfactual_j1_2005_2025_summary_v15.html">J1 2005〜2025 監督交代cutoff反実仮想</a></li>
+        <li><a href="data/ver.1.5+/manager_boost_condition_summary.html">監督交代条件探索サマリー</a></li>
+        <li><a href="data/ver.1.5+/manager_change_uplift_summary.html">監督交代アップリフト集計サマリー</a></li>
+      </ul>
+      <nav class="site-nav">
+        <a href="index.html">トップ</a>
+        <a href="model.html">モデル説明</a>
+        <a href="devlog.html">開発ログ</a>
+        <a href="glossary.html">用語集</a>
+      </nav>
+    </section>
+  </main>
+</body>
+</html>

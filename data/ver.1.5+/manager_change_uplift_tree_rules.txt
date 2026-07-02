@@ -1,0 +1,14 @@
+Decision Tree rules for uplift_flag_after_1_5
+Target: uplift_vs_pseudo_sum_after_1_5 > 0
+Note: small-sample exploratory model; use as rule discovery, not definitive prediction.
+
+|--- opponent_elo_mean_after_1_3 <= 1466.332
+|   |--- class: 1
+|--- opponent_elo_mean_after_1_3 >  1466.332
+|   |--- pre_ppg <= 0.472
+|   |   |--- class: 1
+|   |--- pre_ppg >  0.472
+|   |   |--- last5_gf_per_match <= 1.500
+|   |   |   |--- class: 0
+|   |   |--- last5_gf_per_match >  1.500
+|   |   |   |--- class: 1

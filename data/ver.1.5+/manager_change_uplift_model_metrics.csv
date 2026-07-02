@@ -1,0 +1,3 @@
+﻿model,target,n_events,positive_rate,accuracy,balanced_accuracy,roc_auc
+decision_tree_classifier_cv,uplift_flag_after_1_5,106,0.4716981132075472,0.5,0.49357142857142855,0.5014285714285714
+random_forest_classifier_cv_reference,uplift_flag_after_1_5,106,0.4716981132075472,0.4811320754716981,0.48,0.4639285714285714
