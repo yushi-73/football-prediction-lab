@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Model | Football Prediction Lab</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .page-nav {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    .page-nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      padding: 8px 14px;
+      border-radius: 999px;
+    }
+
+    .page-nav a:hover {
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    .lead {
+      font-size: 17px;
+      line-height: 2;
+    }
+
+    .badge-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #f3e8ff;
+      color: #6b21a8;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+    }
+
+    .model-flow {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .flow-card {
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      padding: 18px;
+      background: #fafafa;
+    }
+
+    .flow-card .num {
+      display: inline-block;
+      background: #9400d3;
+      color: white;
+      width: 30px;
+      height: 30px;
+      text-align: center;
+      line-height: 30px;
+      border-radius: 50%;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .flow-card h3 {
+      margin: 6px 0 8px;
+      color: #111827;
+      font-size: 17px;
+    }
+
+    .flow-card p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .formula-box {
+      background: #111827;
+      color: #f9fafb;
+      border-radius: 14px;
+      padding: 22px;
+      overflow-x: auto;
+      margin-top: 16px;
+    }
+
+    .formula-box code {
+      color: #fef3c7;
+      font-size: 15px;
+      line-height: 2;
+      white-space: pre-wrap;
+    }
+
+    .note {
+      background: #f8fafc;
+      border-left: 6px solid #9400d3;
+      padding: 16px 18px;
+      border-radius: 10px;
+      margin-top: 16px;
+    }
+
+    .note p {
+      margin: 0;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .status-adopted {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .status-testing {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .status-hold {
+      background: #e0f2fe;
+      color: #075985;
+    }
+
+    .insight-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .insight-card {
+      background: #fafafa;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      padding: 18px;
+    }
+
+    .insight-card h3 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      color: #111827;
+      font-size: 17px;
+    }
+
+    .insight-card p {
+      margin: 0;
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    .small-text {
+      font-size: 13px;
+      color: #6b7280;
+      line-height: 1.8;
+    }
+
+    footer {
+      text-align: center;
+      padding: 32px 16px 48px;
+      color: #6b7280;
+    }
+
+    footer a {
+      color: #6b21a8;
+      text-decoration: none;
+      font-weight: 700;
+      margin: 0 8px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 640px) {
+      header h1 {
+        font-size: 30px;
+      }
+
+      section {
+        padding: 22px;
+      }
+
+      th, td {
+        font-size: 13px;
+        padding: 9px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>順位予測モデル</h1>
+    <p>ポアソン分布を用いたJリーグ順位予測モデルの設計思想と検証結果</p>
+
+    <nav class="page-nav">
+      <a href="index.html">トップ</a>
+      <a href="model.html">モデル説明</a>
+      <a href="devlog.html">開発ログ</a>
+      <a href="glossary.html">用語集</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>このページの目的</h2>
+      <p class="lead">
+        このページでは、Football Prediction Labで使用している順位予測モデルについて、
+        どのような考え方で期待得点を推定し、どのような条件でリーグ戦をシミュレーションしているのかを整理します。
+      </p>
+
+      <p>
+        本モデルの目的は、単に順位を当てることではなく、
+        <strong>「どの要素を改善すれば順位予測がどの程度変化するのか」</strong>を検証できる土台を作ることです。
+        そのため、予測精度だけでなく、解釈しやすさと検証の再現性も重視しています。
+      </p>
+
+      <div class="badge-row">
+        <span class="badge">Jリーグ順位予測</span>
+        <span class="badge">ポアソン分布</span>
+        <span class="badge">期待得点λ</span>
+        <span class="badge">リーグシミュレーション</span>
+        <span class="badge">検証ログ型ポートフォリオ</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>モデルの全体像</h2>
+      <p>
+        サッカーは1試合あたりの得点数が比較的少なく、0点・1点・2点といった離散的な得点分布を扱う必要があります。
+        そこで本モデルでは、各チームの攻撃力・守備力から試合ごとの期待得点λを推定し、
+        ポアソン分布によってスコアの発生確率を計算します。
+      </p>
+
+      <div class="model-flow">
+        <div class="flow-card">
+          <span class="num">1</span>
+          <h3>試合データの入力</h3>
+          <p>
+            得点、失点、シュート数、枠内シュート数などをチーム別・試合別に整理します。
+          </p>
+        </div>
+
+        <div class="flow-card">
+          <span class="num">2</span>
+          <h3>攻撃力・守備力の推定</h3>
+          <p>
+            各チームの得点傾向と失点傾向を、リーグ平均と比較して数値化します。
+          </p>
+        </div>
+
+        <div class="flow-card">
+          <span class="num">3</span>
+          <h3>期待得点λの算出</h3>
+          <p>
+            対戦カードごとに、ホーム・アウェイ双方の期待得点を計算します。
+          </p>
+        </div>
+
+        <div class="flow-card">
+          <span class="num">4</span>
+          <h3>スコア確率の計算</h3>
+          <p>
+            ポアソン分布を用いて、0-0、1-0、1-1、2-1などのスコア確率を求めます。
+          </p>
+        </div>
+
+        <div class="flow-card">
+          <span class="num">5</span>
+          <h3>リーグ戦の反復シミュレーション</h3>
+          <p>
+            未消化試合を複数回シミュレーションし、順位分布と最終順位の確率を推定します。
+          </p>
+        </div>
+
+        <div class="flow-card">
+          <span class="num">6</span>
+          <h3>実順位との比較検証</h3>
+          <p>
+            実際の順位と予測順位を比較し、MAEなどの指標でモデルを評価します。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>使用データ</h2>
+      <p>
+        現時点では、取得しやすく再現性の高いデータを中心に使用しています。
+        特に、試合結果から安定して取得できる得点・失点を基礎に置き、
+        追加特徴量としてシュート数や枠内シュート数を検証しています。
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>項目</th>
+            <th>内容</th>
+            <th>扱い</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>対象リーグ</td>
+            <td>J1リーグを中心に検証</td>
+            <td>基礎検証対象</td>
+          </tr>
+          <tr>
+            <td>対象シーズン</td>
+            <td>2024年・2025年のデータを中心に使用</td>
+            <td>モデル検証用</td>
+          </tr>
+          <tr>
+            <td>得点・失点</td>
+            <td>各チームの攻撃力・守備力を推定する基礎データ</td>
+            <td>採用</td>
+          </tr>
+          <tr>
+            <td>シュート数</td>
+            <td>攻撃量を表す補助指標</td>
+            <td>検証中</td>
+          </tr>
+          <tr>
+            <td>枠内シュート数</td>
+            <td>シュートの質を反映する補助指標</td>
+            <td>検証中</td>
+          </tr>
+          <tr>
+            <td>xG</td>
+            <td>得点期待値を直接扱うための指標</td>
+            <td>取得可能な範囲で今後検証</td>
+          </tr>
+          <tr>
+            <td>評価指標</td>
+            <td>MAE：実順位と予測順位の平均絶対誤差</td>
+            <td>主指標</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note">
+        <p>
+          <strong>補足：</strong>
+          データの取得範囲や精度が年度によって異なるため、すべての特徴量を無理に使うのではなく、
+          「安定して取得できるデータ」と「追加検証用データ」を分けて扱っています。
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>期待得点λの考え方</h2>
+      <p>
+        本モデルでは、各試合の得点を直接予測するのではなく、まずホームチームとアウェイチームの期待得点λを推定します。
+        λは、リーグ平均得点、対象チームの攻撃力、相手チームの守備力を組み合わせて計算します。
+      </p>
+
+      <div class="formula-box">
+        <code>
+home_lambda =
+  league_home_goal_avg
+  × home_team_attack_strength
+  × away_team_defense_weakness
+  × adjustment
+
+away_lambda =
+  league_away_goal_avg
+  × away_team_attack_strength
+  × home_team_defense_weakness
+  × adjustment
+
+P(X = k) =
+  e^(-λ) × λ^k / k!
+        </code>
+      </div>
+
+      <p>
+        ここでのポイントは、λを「そのチームが何点取るかの平均的な期待値」として扱うことです。
+        たとえばλが1.4であれば、そのチームは平均的には1.4点程度を取ると見なし、
+        0点、1点、2点、3点以上の確率をポアソン分布から計算します。
+      </p>
+    </section>
+
+    <section>
+      <h2>採用パラメータ</h2>
+      <p>
+        以下は、これまでの検証結果を踏まえた現時点での採用設定です。
+        複雑な補正を増やすよりも、ノイズを抑えたシンプルな構造の方が安定するケースが見られたため、
+        現在は解釈しやすいモデルを基準にしています。
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>項目</th>
+            <th>設定</th>
+            <th>状態</th>
+            <th>採用理由</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>試合モデル</td>
+            <td>ポアソン分布</td>
+            <td><span class="status status-adopted">採用</span></td>
+            <td>サッカーの得点数のような低頻度イベントを扱いやすいため。</td>
+          </tr>
+          <tr>
+            <td>更新間隔</td>
+            <td>3試合ごと</td>
+            <td><span class="status status-adopted">採用</span></td>
+            <td>1試合ごとの更新よりノイズを抑え、5試合ごとの更新より変化に追従しやすかったため。</td>
+          </tr>
+          <tr>
+            <td>期待得点上限</td>
+            <td>λ cap = 3.5</td>
+            <td><span class="status status-adopted">採用</span></td>
+            <td>極端な大量得点予測を抑えつつ、順位予測誤差が小さかったため。</td>
+          </tr>
+          <tr>
+            <td>Decay</td>
+            <td>1.00</td>
+            <td><span class="status status-adopted">採用</span></td>
+            <td>直近試合を過度に重視すると、かえって精度が悪化したため。</td>
+          </tr>
+          <tr>
+            <td>ホーム補正</td>
+            <td>0.0</td>
+            <td><span class="status status-adopted">採用</span></td>
+            <td>ホーム・アウェイ別に得点を集計しているため、追加補正は二重計上になりやすかったため。</td>
+          </tr>
+          <tr>
+            <td>フォーム補正</td>
+            <td>0.0</td>
+            <td><span class="status status-adopted">採用</span></td>
+            <td>直近成績を混合すると、検証上は順位予測誤差が悪化したため。</td>
+          </tr>
+          <tr>
+            <td>シミュレーション回数</td>
+            <td>開発時：100回 / 最終検証時：10,000回</td>
+            <td><span class="status status-hold">用途で変更</span></td>
+            <td>開発中は速度を優先し、最終比較では試行回数を増やして順位分布を安定させるため。</td>
+          </tr>
+          <tr>
+            <td>Elo補正</td>
+            <td>INITIAL_ELO = 1500 / K = 16 / λ補正 weight = 0.20</td>
+            <td><span class="status status-testing">検証中</span></td>
+            <td>チームの強さを連続的に更新する補助指標として有効か検証中。</td>
+          </tr>
+          <tr>
+            <td>相性Effect</td>
+            <td>effect = 0.20 / decay = 0.97 / shrink = 30</td>
+            <td><span class="status status-testing">検証中</span></td>
+            <td>特定カードの相性を反映できる可能性がある一方、過学習のリスクもあるため慎重に検証中。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>検証結果の例</h2>
+      <p>
+        これまでの検証では、単に補正を増やせば精度が上がるわけではなく、
+        むしろシンプルな設定の方が安定するケースが確認されました。
+        以下は検証ログ上の代表的な比較例です。
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>検証項目</th>
+            <th>比較結果の例</th>
+            <th>モデルへの反映</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>更新間隔</td>
+            <td>3試合ごとの更新が比較的良好</td>
+            <td>更新間隔は3試合ごとを基準に設定。</td>
+          </tr>
+          <tr>
+            <td>期待得点上限</td>
+            <td>λ cap = 3.5 が比較的良好</td>
+            <td>極端なスコア予測を抑えるため、上限3.5を採用。</td>
+          </tr>
+          <tr>
+            <td>Decay</td>
+            <td>Decay = 1.00 が比較的安定</td>
+            <td>直近試合への過度な重み付けは行わない。</td>
+          </tr>
+          <tr>
+            <td>ホーム補正</td>
+            <td>追加のホーム補正なしが比較的良好</td>
+            <td>ホーム・アウェイ別集計との二重補正を避ける。</td>
+          </tr>
+          <tr>
+            <td>フォーム補正</td>
+            <td>直近フォームを混合すると悪化するケースあり</td>
+            <td>現時点ではフォーム補正を採用しない。</td>
+          </tr>
+          <tr>
+            <td>Elo補正</td>
+            <td>λへの弱い補正としては改善余地あり</td>
+            <td>本採用ではなく、補助モデルとして検証継続。</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note">
+        <p>
+          <strong>重要：</strong>
+          このモデルでは、精度だけでなく「なぜその設定にしたのか」を説明できることを重視しています。
+          そのため、検証結果が不安定な補正は、すぐに採用せず検証中として分けています。
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>現時点で分かったこと</h2>
+
+      <div class="insight-grid">
+        <div class="insight-card">
+          <h3>1. 複雑な補正が常に有効とは限らない</h3>
+          <p>
+            フォーム補正やホーム補正を追加しても、必ずしも順位予測の精度が上がるわけではありませんでした。
+            データ量が限られる場合、補正がノイズを拾う可能性があります。
+          </p>
+        </div>
+
+        <div class="insight-card">
+          <h3>2. λの上限設定は重要</h3>
+          <p>
+            期待得点が極端に大きくなると、大量得点の確率を過大評価しやすくなります。
+            λ capを設定することで、現実的なスコア分布に近づけることができます。
+          </p>
+        </div>
+
+        <div class="insight-card">
+          <h3>3. 予測結果は映像分析の入口になる</h3>
+          <p>
+            数値モデルだけで試合内容を断定するのではなく、
+            「なぜこのチームの得点期待が高いのか」を映像で確認することで、
+            分析の説得力を高めることができます。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>現場での応用例</h2>
+      <p>
+        このモデルは、単なる順位予測だけでなく、チーム分析や映像分析の対象を決めるためにも活用できます。
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>応用例</th>
+            <th>できること</th>
+            <th>映像分析との接続</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>攻撃改善シミュレーション</td>
+            <td>得点力を一定割合改善した場合、順位分布がどう変化するかを見る。</td>
+            <td>得点期待が高い時間帯や攻撃パターンを映像で確認する。</td>
+          </tr>
+          <tr>
+            <td>守備改善シミュレーション</td>
+            <td>失点率を下げた場合、勝点期待値がどれだけ変化するかを見る。</td>
+            <td>失点につながりやすい局面、被カウンター、セットプレーを確認する。</td>
+          </tr>
+          <tr>
+            <td>再現性の検証</td>
+            <td>勝利が一時的な上振れだったのか、継続可能な内容だったのかを確認する。</td>
+            <td>シュート数、枠内シュート数、決定機の質を試合映像と照合する。</td>
+          </tr>
+          <tr>
+            <td>対戦相手分析</td>
+            <td>次節の相手に対して、スコア確率や勝敗確率を事前に確認する。</td>
+            <td>相手の得点パターン、失点パターン、時間帯別傾向を確認する。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>限界と今後の改善</h2>
+      <p>
+        現在のモデルは、得点・失点を中心にした比較的シンプルなモデルです。
+        そのため、選手の個別能力、戦術変更、怪我人、日程負荷、試合展開などは十分に反映できていません。
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>改善項目</th>
+            <th>目的</th>
+            <th>優先度</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>順位予測表のWeb表示</td>
+            <td>チーム別の優勝・昇格・残留確率を見やすく表示する。</td>
+            <td>高</td>
+          </tr>
+          <tr>
+            <td>チーム別順位分布の可視化</td>
+            <td>単一順位ではなく、何位に入りやすいかを確率分布で示す。</td>
+            <td>高</td>
+          </tr>
+          <tr>
+            <td>シュート数・枠内シュート数の特徴量改善</td>
+            <td>得点結果だけでなく、攻撃量やチャンスの質を反映する。</td>
+            <td>中</td>
+          </tr>
+          <tr>
+            <td>xGの導入</td>
+            <td>シュートの質をより直接的にモデルへ反映する。</td>
+            <td>中</td>
+          </tr>
+          <tr>
+            <td>昇格組補正</td>
+            <td>前年データが同一リーグに存在しないチームの初期値を調整する。</td>
+            <td>中</td>
+          </tr>
+          <tr>
+            <td>相性Effectの検証</td>
+            <td>特定カードにおける相性を反映できるか検証する。</td>
+            <td>低〜中</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="small-text">
+        ※ 優先度は、モデル精度への影響だけでなく、データ取得のしやすさ、説明のしやすさ、ポートフォリオとしての見せやすさを含めて判断しています。
+      </p>
+    </section>
+
+    <section>
+      <h2>まとめ</h2>
+      <p class="lead">
+        本モデルは、ポアソン分布を用いてサッカーの得点確率を計算し、
+        リーグ戦を反復シミュレーションすることで最終順位を予測するモデルです。
+      </p>
+
+      <p>
+        現時点では、更新間隔3試合、λ上限3.5、Decay 1.00、ホーム補正なし、フォーム補正なしを基準としています。
+        これは、複数条件を比較した結果、過度に複雑な補正を加えるよりも、シンプルで説明可能なモデルの方が安定しやすかったためです。
+      </p>
+
+      <p>
+        今後は、順位予測の精度向上だけでなく、
+        <strong>「どの改善が勝点や順位にどれだけ影響するか」</strong>を示せる分析ツールとして発展させていきます。
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <a href="index.html">トップ</a>
+    <a href="model.html">モデル説明</a>
+    <a href="devlog.html">開発ログ</a>
+    <a href="glossary.html">用語集</a>
+  </footer>
+</body>
+</html>
